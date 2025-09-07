@@ -1,7 +1,7 @@
 Team Name: Packing Pal
 
 Team members:
-Aiden Frank | Computer Science | frankai@mal.uc.edu
+Aiden Frank | Computer Science | frankai@mail.uc.edu
 Monica Escobedo Barahona | Computer Science | escobema@mail.uc.edu
 Jessica Cvetkovska | Computer Science | cvetkojr@mail.uc.edu
 
