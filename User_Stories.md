@@ -12,8 +12,6 @@ Examples:
 
 # Packing Pal User Stories
 
-1. As a
-2. As a
-3. As a
-4. As a
-5. As a
+1. As a camper, I want to create lists of things to bring on my trip, so that I bring everything I need for a successful trip.
+2. As a camper, I want to list activites on my trip, so that I can get suggested items for the activites.
+3. As a campter, I want to be able to share my list, so that my friends know what to bring.
