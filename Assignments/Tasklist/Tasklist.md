@@ -17,3 +17,8 @@ Task | Primary team member
 - [ ] Setup database framework | Jessica
 - [ ] Research list export options | Monica
 - [ ] Test various browser compatability | Jessica
+- [ ] Research Light and Dark mode for Tailwind | Monica
+- [ ] Design Logo/Graphic | All members
+- [ ] Develop Hamburger menu | Monica
+- [ ] Develop Login | Jessica
+- [ ] Develop past lists function | Aiden
