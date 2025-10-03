@@ -1,4 +1,4 @@
-CS5001 Senior Design Project
+CS5001 Senior Design Project 
 
 # Packing Pal
 
