@@ -3,23 +3,23 @@
 ## Table of Contents
 
 * [Core Information](#core-information)
- * [Team Members](#team-members)
- * [Project Abstract](#project-abstract)
+   * [Team Members](#team-members)
+   * [Project Abstract](#project-abstract)
 * [Project Description (Assignment #2)](#project-description)
 * [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams)
- * [User Stories](#user-stories)
- * [Design Diagrams](#design-diagrams)
+   * [User Stories](#user-stories)
+   * [Design Diagrams](#design-diagrams)
 * [Project Tasks, Timeline, and Effort Matrix (Assignments #5-#6)](#project-tasks-timeline-and-effort-matrix)
- * [Task List](#task-list)
- * [Timeline and Effort Matrix](#timeline-and-effort-matrix)
+   * [Task List](#task-list)
+   * [Timeline and Effort Matrix](#timeline-and-effort-matrix)
 * [ABET Concerns Essay (Assignment #7)](#abet-concerns-essay)
 * [Fall Design Presentation (Assignment #8)](#fall-design-presentation)
 * [Self-Assessment Essays (Assignment #3)](#self-assessment-essays)
 * [Professional Biographies (Assignment #1)](#professional-biographies)
 * [Summary of Expenses](#summary-of-expenses)
 * [Appendix](#appendix)
- * [References, Citations, Links to Code Repositories, Meeting Notes](#references-citations-links-to-code-repositories-meeting-notes)
- * [Summary of Hours and Justification](#summary-of-hours-and-justification)
+   * [References, Citations, Links to Code Repositories, Meeting Notes](#references-citations-links-to-code-repositories-meeting-notes)
+   * [Summary of Hours and Justification](#summary-of-hours-and-justification)
 
 ## Core Information
 
