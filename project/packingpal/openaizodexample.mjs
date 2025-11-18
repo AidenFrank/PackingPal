@@ -1,7 +1,11 @@
+import "dotenv/config";
 import OpenAI from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
-const client = new OpenAI();
+const key = process.env.OPENAI_API_KEY;
+const client = new OpenAI({
+  apiKey: key,
+});
 
 const CampingListSchema = z.object({
   title: z.string(),
@@ -22,7 +26,7 @@ const response = await client.responses.parse({
     {
       role: "system",
       content:
-        "You are an expert on planning camping trips. You will generate a short list of items for the use in a json format that fits their needs.",
+        "You are an expert on planning camping trips. You will generate a short list of items json format that fits their needs.",
     },
     {
       role: "user",
