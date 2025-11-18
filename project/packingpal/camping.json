@@ -1,0 +1,11 @@
+{
+  "title": "Camping List",
+  "author": "Aiden",
+  "items": [
+    { "name": "Backpack", "quantity": 1, "weight": 1.25 },
+    { "name": "Shirts", "quantity": 3, "weight": 1.0 },
+    { "name": "Pants", "quantity": 3, "weight": 1.0 },
+    { "name": "Flashlight", "quantity": 1, "weight": 1.25 },
+    { "name": "Flashlight 2", "quantity": 1, "weight": 1.25 }
+  ]
+}
