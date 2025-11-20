@@ -93,8 +93,44 @@ The following expenses were needed:
 ### References, Citations, Links to Code Repositories, Meeting Notes
 
 The following links were helpful in the creation of our project:
-- Links to tutorials that we used
+- [Tic Tac Toe React Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
+- [OpenAI API Cost Information](https://themeisle.com/blog/chatgpt-api-cost/)
 
 ### Summary of Hours and Justification
 
-To be added
+2025
+Group Meeting hours:
+- 9/4 30 minutes: Discussed intial project ideas and name
+- 9/9 30 minutes: Discussed team contract
+- 9/16 1 hour: Created user stories/design diagrams and planned initial research needed for React coding
+- 9/18 1 hour: Met with project advisor John Lynch
+- 9/25 1.5 hours: Mapped out project flow
+- 10/2 1 hour: Created project task list
+- 10/15 30 minutes: Started ticketing on Github and presentation assignment
+- 10/24 30 minutes: Check in with advisor
+- 10/25 1 hour: Record presentation
+- 11/5 30 minutes: Discuss project report
+- 11/12 30 minutes: Progress updates
+- 11/18 30 minutes: Progress updates
+Total: 9 hours
+
+Aiden:
+- 9/3 1 hour: Project idea brainstorming
+- 9/5 1 hour: Worked on individual captsone
+- 9/14 1 hour: React research
+- 9/15 30 minutes: Brainstorm initial user stories/design diagrams
+- 9/18 1 hour: Research and set up Netlify
+- 10/6 2 hours: Wrote economic side of constraint essay and also researched OpenAI API usage and costs
+- 10/10 1 hour: Meeting with advisor for Netlify information
+- 10/15 30 minutes: Worked on presentation slides information
+- 10/18 30 minutes: Worked on presentation slides styling
+- 10/20 1 hour: OpenAI API testing
+- 10/27: 30 minutes: Peer reviews
+- 11/17 1 hour: OpenAI API testing with Zod formatting
+- 11/18 30 minutes: Env integration for OpenAI API secret key and branch merge into main
+Total: 11.5 hours
+
+Monica:
+
+Jessica:
+
