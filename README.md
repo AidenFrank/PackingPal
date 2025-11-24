@@ -131,6 +131,18 @@ Aiden:
 Total: 11.5 hours
 
 Monica:
-
+- 9/3 1 hour: Project idea brainstorming
+- 9/25 1 hour: Team meeting, brainstorming front end design, and features we want for the website. 
+- 9/27 2 hours: Reviewing how to use React, and for review doing the tic tac toe tutorial
+- 9/10 1 Hour: Professional Biography 
+- 9/15 1 Hour: Capstone Assesment
+- 10/2 1 Hour: Task Timeline 
+- 10/10 1 hour: Meeting with advisor for Netlify information
+- 10/15 1 Hour: Meeting with Team and created the Logo for PackingPal
+- 10/28 1 Hour: Worked on learning Tailwind CSS and messing around with some code. 
+- 10/31 2 hours: Worked on splitting the chat side and list side, and logo on the website.
+- 11/3 1 hour: Peer Review
+- 11/18 2 hours: Worked on login page
+Total:  
 Jessica:
 
