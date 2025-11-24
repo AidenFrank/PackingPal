@@ -136,6 +136,7 @@ Aiden:
 - 11/17 1 hour: OpenAI API testing with Zod formatting
 - 11/18 1 hour: Env integration for OpenAI API secret key and branch merge into main
 - 11/20 1 hour: Final Design Reports
+
 Total: 36 hours
 
 Monica:
@@ -151,6 +152,7 @@ Monica:
 - 10/31 2 hours: Worked on splitting the chat side and list side, and logo on the website.
 - 11/3  30 minutes: Peer Review
 - 11/18 2 hours: Worked on login page
+
 Total: 14.5 hours
 
 Jessica:
@@ -159,4 +161,5 @@ Jessica:
 - meetings (including planning of discussion topics before meetings and partial meeting minutes after): 15 hours
 - brainstorming, researching, and implementing database schema: 5 hours
 - reviewing pull requests: 1 hour
+
 Total: 37 hours
