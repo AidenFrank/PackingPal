@@ -112,23 +112,31 @@ Group Meeting hours:
 - 11/5 30 minutes: Discuss project report
 - 11/12 30 minutes: Progress updates
 - 11/18 30 minutes: Progress updates
-Total: 9 hours
+- 11/24 30 minutes: Report meeting and Advisor Rubric discussion
+Total: 9.5 hours
 
 Aiden:
+- 8/29 1 hour: Professional Biography
 - 9/3 1 hour: Project idea brainstorming
 - 9/5 1 hour: Worked on individual captsone
-- 9/14 1 hour: React research
+- 9/14 2 hours: React research
 - 9/15 30 minutes: Brainstorm initial user stories/design diagrams
 - 9/18 1 hour: Research and set up Netlify
+- 9/22 4 hours: React learning and experimentation
+- 9/26 5 hours: React/Netlify learning and experimentation
+- 9/28 5 hours: React/Netlify/Supabase learning and experimentation
+- 9/29 5 hours: React learning and experimentation
+- 10/3 1 hour: React learning and experimentation
 - 10/6 2 hours: Wrote economic side of constraint essay and also researched OpenAI API usage and costs
 - 10/10 1 hour: Meeting with advisor for Netlify information
 - 10/15 30 minutes: Worked on presentation slides information
 - 10/18 30 minutes: Worked on presentation slides styling
-- 10/20 1 hour: OpenAI API testing
+- 10/20 2 hours: OpenAI API research testing
 - 10/27: 30 minutes: Peer reviews
 - 11/17 1 hour: OpenAI API testing with Zod formatting
-- 11/18 30 minutes: Env integration for OpenAI API secret key and branch merge into main
-Total: 11.5 hours
+- 11/18 1 hour: Env integration for OpenAI API secret key and branch merge into main
+- 11/20 1 hour: Final Design Reports
+Total: 36 hours
 
 Monica:
 - 9/3 1 hour: Project idea brainstorming
@@ -144,5 +152,6 @@ Monica:
 - 11/3  30 minutes: Peer Review
 - 11/18 2 hours: Worked on login page
 Total: 14.5 hours
+
 Jessica:
 
