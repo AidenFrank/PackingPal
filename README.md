@@ -107,13 +107,13 @@ Group Meeting hours:
 - 9/25 1.5 hours: Mapped out project flow
 - 10/2 1 hour: Created project task list
 - 10/15 30 minutes: Started ticketing on Github and presentation assignment
-- 10/24 30 minutes: Check in with advisor
+- 10/24 1 hour: Check in with advisor
 - 10/25 1 hour: Record presentation
 - 11/5 30 minutes: Discuss project report
 - 11/12 30 minutes: Progress updates
 - 11/18 30 minutes: Progress updates
 - 11/24 30 minutes: Report meeting and Advisor Rubric discussion
-Total: 9.5 hours
+Total: 10 hours
 
 Aiden:
 - 8/29 1 hour: Professional Biography
@@ -154,4 +154,9 @@ Monica:
 Total: 14.5 hours
 
 Jessica:
-
+- researching related technologies/tools and tutorials: 3 hours
+- assignments worked on outside of the group (professional biography, concerns essay, peer reviews, design report/presentation, etc): 13 hours
+- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 15 hours
+- brainstorming, researching, and implementing database schema: 5 hours
+- reviewing pull requests: 1 hour
+Total: 37 hours
