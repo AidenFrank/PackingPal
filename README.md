@@ -150,10 +150,10 @@ Total: 40 Hours
 
 
 Jessica:
-- researching related technologies/tools and tutorials: 3 hours
+- researching related technologies/tools and tutorials: 3.5 hours
 - assignments worked on outside of the group (professional biography, concerns essay, peer reviews, design report/presentation, etc): 13 hours
-- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 16 hours
+- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 17.5 hours
 - brainstorming, researching, and implementing database schema: 6 hours
 - reviewing pull requests: 1 hour
 
-Total: 39 hours
+Total: 41 hours
