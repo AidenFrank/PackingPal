@@ -1,4 +1,4 @@
-# Packing Pal
+# PackingPal
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@
 
 ### Project Abstract
 
-Packing Pal is a tool designed to help people conveniently formulate and share highly customized packing lists built with React and utilizing AI technology.
+PackingPal is a tool designed to help people conveniently formulate and share highly customized packing lists built with React and utilizing AI technology.
 
 ## Project Description
 
