@@ -3,24 +3,26 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="relative min-h-screen flex">
-      {/* Logo in top-left */}
-      <div className="absolute top-4 left-4">
-        <Image
-          src="/images/logo.png"
-          alt="CampGPT Logo"
-          width={60}   // adjust as needed
-          height={60}
-          className="rounded-md shadow-md"
-        />
-      </div>
+      
       {/*Chat Section*/}
       <div className="w-1/2 p-6 backdrop-blur-sm bg-black/40 text-white">
-        <h1 className="text-3xl font-bold mb-4">PackingPal Chat</h1>
+        <h1 className="text-3xl font-bold mb-4 ml-40">PackingPal Chat</h1>
     </div>
     {/*Packing List Section*/}
       <div className="w-1/2 p-6 backdrop-blur-sm bg-white/40 text-black">
         <h1 className="text-3xl font-bold mb-4">Packing List</h1>
         {/*List + checboxes would go here*/}
+      </div>
+      
+      {/* Logo in top-left */}
+      <div className="absolute top-4 left-4">
+        <Image
+          src="/images/PackingPal.webp"
+          alt="PackingPal Logo"
+          width={60}   // adjust as needed
+          height={60}
+          className="rounded-md shadow-md"
+        />
       </div>
 </div>
 
