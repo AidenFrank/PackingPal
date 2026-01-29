@@ -145,8 +145,8 @@ Monica:
 - Group meetings: 13
 - Creating the home page, splitting the chat and list sides, designing logo, adding logo to website: 7
 - Created Login Page: 3
-
-Total: 40 Hours 
+- Worked on having the login page connect with home page and sign up page: 3 
+Total: 43 Hours 
 
 
 Jessica:
