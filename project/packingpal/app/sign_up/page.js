@@ -1,8 +1,7 @@
-import Link from "next/link";
 "use client";
+import Link from "next/link";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -24,7 +23,10 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-700">
-      <form className="w-full max-w-md bg-white/90 p-8 rounded-xl shadow-xl" onSubmit={handleSubmit}>
+      <form
+        className="w-full max-w-md bg-white/90 p-8 rounded-xl shadow-xl"
+        onSubmit={handleSubmit}
+      >
         <h1 className="text-3xl font-bold mb-6 text-center text-slate-800">
           Create an Account
         </h1>
