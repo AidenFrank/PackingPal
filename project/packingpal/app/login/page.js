@@ -16,64 +16,80 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-700">
+    <div className="min-h-screen flex items-center justify-center 
+                    bg-gradient-to-br from-[#435A50] to-[#3b4f46] px-4">
+
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md bg-white/90 backdrop-blue-md p-8 rounded-xl shadow-xl"
-        >
-          <h1 className="text-3xl font-bold mb-6 text-center text-slate-800">
-            Login to PackingPal
-          </h1>
-        
-        {/*Email*/}
-        <div className="mb-4">
-          <label className ="block text0sm font-medium mb-1 text-slate-700">
-            Email:
+        className="w-full max-w-md bg-white/95 backdrop-blur-md 
+                  p-10 rounded-2xl shadow-2xl"
+      >
+
+        <h1 className="text-3xl font-bold text-center text-slate-800">
+          Welcome Back
+        </h1>
+
+        <p className="text-center text-slate-500 mt-2 mb-8">
+          Let’s get you packed for your next adventure.
+        </p>
+
+        {/* Email */}
+        <div className="mb-5">
+          <label className="block text-sm font-medium mb-2 text-slate-700">
+            Email
           </label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+            className="w-full px-4 py-3 border border-slate-300 
+                      rounded-lg focus:outline-none 
+                      focus:ring-2 focus:ring-[#E97824] 
+                      focus:border-transparent transition"
             placeholder="you@example.com"
           />
         </div>
-          {/*Password*/}
-          <div className="mb-6">
-            <label className="block text-sm font-medium mb-1 text-slate-700 text-black">
-              Password:
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-              placeholder="Enter your password"
-            />
-          </div>
-          {/*Submit*/}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
-          >
-            Login
-          </button>
 
-          {/*Navigation*/}
-          <p className="mt-4 text-center text-sm text-slate-600">
-            Back to{" "}
-            <Link href="/" className="text-blue-600 hover:underline">
-              Home
-            </Link>
-          </p>
-            <p className="mt-4 text-sm text-center text-slate-600">
-              Don’t have an account?{" "}
-              <Link href="/sign_up" className="text-blue-600 hover:underline">
-                 Sign up
-              </Link>
-            </p>
+        {/* Password */}
+        <div className="mb-6">
+          <label className="block text-sm font-medium mb-2 text-slate-700">
+            Password
+          </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="w-full px-4 py-3 border border-slate-300 
+                      rounded-lg focus:outline-none 
+                      focus:ring-2 focus:ring-[#E97824] 
+                      focus:border-transparent transition"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        {/* Button */}
+        <button
+          type="submit"
+          className="w-full bg-[#E97824] text-white 
+                    py-3 rounded-lg font-semibold 
+                    hover:bg-[#cf671d] transition-all 
+                    duration-200 shadow-md hover:shadow-lg"
+        >
+          Login
+        </button>
+
+        {/* Links */}
+        <p className="mt-6 text-center text-sm text-slate-600">
+          Don’t have an account?{" "}
+          <Link
+            href="/sign_up"
+            className="text-[#435A50] font-medium hover:underline"
+          >
+            Sign up
+          </Link>
+        </p>
 
       </form>
     </div>
