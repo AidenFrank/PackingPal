@@ -39,7 +39,7 @@ export default function SignupPage() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 text-black"
           />
         </div>
 
@@ -52,7 +52,7 @@ export default function SignupPage() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 text-black"
           />
         </div>
 
@@ -65,7 +65,7 @@ export default function SignupPage() {
             required
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 text-black"
           />
         </div>
 
