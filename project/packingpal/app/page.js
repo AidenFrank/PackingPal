@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Chat from "@/components/chat/chat";
+import List from "@/components/list/list";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <div className="w-1/2 p-8 backdrop-blur-sm bg-white/50 text-black">
         <h1 className="text-3xl font-bold mb-6 text-center">Packing List</h1>
         {/*List + checboxes would go here*/}
+        <List />
       </div>
 
       {/* Logo in top-left */}
