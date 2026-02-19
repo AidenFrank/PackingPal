@@ -11,32 +11,35 @@ export default function Chat() {
         "Hello! I'm PackingPal, a helpful tool designed to help you create the perfect packing list for your camping trip. Why don't you start by telling me a bit about your trip?",
     },
   ]);
+  // Used to hold user input
   const [input, setInput] = useState("");
+  // Used to set thinking/not thinking
   const [loading, setLoading] = useState(false);
-
+  // Used to mark the bottom of the chat, so auto-scroll can work
   const bottomRef = useRef(null);
-
-  // Auto-scroll when messages change
+  // Auto-scroll when messages fill the bottom of the chat
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
-
+  // The function called when users send a message
   async function sendMessage() {
     // Stops blank messages
     if (!input.trim()) return;
-
+    // Input from user
     const userMessage = {
       role: "user",
       content: input,
     };
-
+    // Sets message in chatbox
     setMessages((prev) => [...prev, userMessage]);
+    // Clears the input form at the bottom
     setInput("");
+    // Begins loading
     setLoading(true);
-
+    // Creates array of past messages plus the current message
     const updatedMessages = [...messages, userMessage];
-
     try {
+      // Sends updatedMessages array to openai
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
@@ -44,22 +47,23 @@ export default function Chat() {
         },
         body: JSON.stringify({ messages: updatedMessages }),
       });
-
+      // Recieves response from openai
       const data = await response.json();
-
+      // Creates message from openai
       const botMessage = {
         role: "assistant",
         content: data.reply,
       };
-
+      // Sets the message
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
+      // Sets error message if there was a problem
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "Server error." },
       ]);
     }
-
+    // Turns off loading
     setLoading(false);
   }
 
@@ -67,6 +71,7 @@ export default function Chat() {
     <div className="flex flex-col h-full w-full">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto min-h-0 p-4 flex flex-col space-y-2">
+        {/* Creates bubble for every message */}
         {messages.map((msg, index) => (
           <div
             key={index}
