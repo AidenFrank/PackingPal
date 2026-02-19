@@ -8,13 +8,13 @@ const openai = new OpenAI({
 // API route to handle chat messages
 export async function POST(req) {
   try {
-    const { message } = await req.json();
+    const { messages } = await req.json();
 
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         { role: "system", content: "You are a helpful packing assistant." },
-        { role: "user", content: message },
+        ...messages,
       ],
     });
 

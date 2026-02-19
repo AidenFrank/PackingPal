@@ -34,13 +34,15 @@ export default function Chat() {
     setInput("");
     setLoading(true);
 
+    const updatedMessages = [...messages, userMessage];
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: userMessage.content }),
+        body: JSON.stringify({ messages: updatedMessages }),
       });
 
       const data = await response.json();
