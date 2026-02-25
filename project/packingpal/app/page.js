@@ -1,8 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import {useState} from "react";
 import Chat from "@/components/chat/chat";
 
+
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen flex bg-gradient-to-br from-slate-900 to-slate-700">
       {/*Chat Section*/}
@@ -29,9 +35,67 @@ export default function Home() {
         />
       </div>
 
-      <Link href="/login" className="bg-blue-600 text-white px-4 py-2 rounded">
-        Go to Login
-      </Link>
+      {/*Hamburger Button*/}
+      <div className="absolute top-4 right-4">
+        <button className="flex flex-col justify-center w-8 h-6 focus:outline-none"
+        onClick={()=> setMenuOpen(!menuOpen)}>
+          <span className="block h-1 w-full bg-white rounded"></span>
+          <span className="block h-1 w-full bg-white rounded"></span>
+          <span className="block h-1 w-full bg-white rounded"></span>
+        </button>
+
+       {/*Slide-in Side Menu*/}
+        <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 z-40 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="p-6 flex flex-col space-y-4">
+          <button
+            className="self-end text-gray-600 font-bold text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            ×
+          </button>
+
+          <Link
+            href="/login"
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            onClick={() => setMenuOpen(false)}
+          >
+            Login
+          </Link>
+
+          <Link
+            href="/settings"
+            className="px-4 py-2 bg-gray-200 text-black rounded hover:bg-gray-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            Settings
+          </Link>
+
+          {/* Add more links here if needed */}
+        </div>
+      </div>
+
+
+
+       {/*Optional overlay*/}
+        {menuOpen && (
+            <div className="absolute right-0 mt-2 w-32 bg-white rounded shadow-lg text-black">
+            <Link
+                href="/login"
+                className="block px-4 py-2 hover:bg-blue-600 hover:text-white rounded"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+              
+
+            </div>
+        )}
+
+      </div>
     </div>
   );
 }
