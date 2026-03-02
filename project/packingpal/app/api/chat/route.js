@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { toolRegistry } from "@/app/tools";
 import { executeTool } from "@/app/lib/toolExecutor";
 import { createCampingTemplate } from "@/app/templates/campingtemplate";
+import { updatePDF } from "@/app/lib/pdfStore";
 
 // Get OpenAI API key from .env
 const openai = new OpenAI({
@@ -28,8 +29,22 @@ export async function POST(req) {
           You are PackingPal, a tool that is made to help people create packing lists for their camping trips.
           You should begin by asking the user about their trip and various details they have on it.
 
+          When you call a tool to update the information,
+          do NOT list out what you updated, you can just say that the information was updated in the packing list.
+
+          When the user provides any details at all determine if the information is relevant enough to be included in the title,
+          then you can call the updateTitle function.
+
           When the user provides details about the location,
           you MUST call the updateLocation function.
+
+          When the user provides details about the number of people,
+          you MUST call the updatePeople function.
+
+          When the user provides details about the number of days,
+          you MUST call the updateDays function.
+
+          
           `,
       },
       ...messages,
@@ -66,7 +81,7 @@ export async function POST(req) {
           });
         }
         // After all tools execute, update PDF
-        //await updatePDF(campingTrip);
+        updatePDF(campingTrip);
         continue;
       }
 

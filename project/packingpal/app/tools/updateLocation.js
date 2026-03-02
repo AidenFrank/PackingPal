@@ -1,10 +1,3 @@
-/*
-export default function updateLocation(args, packingList) {
-  packingList.basicDetails.location = args.location;
-  console.log("Location updated to :", args.location);
-  return packingList;
-}
-*/
 export const tool = {
   name: "updateLocation",
 

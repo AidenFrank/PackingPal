@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { updatePDF } from "@/app/lib/pdfStore";
 
 export default function Chat() {
   // Used to hold messages, also includes default message
@@ -49,6 +50,7 @@ export default function Chat() {
       });
       // Recieves response from openai
       const data = await response.json();
+      updatePDF(data.campingTrip);
       // Creates message from openai
       const botMessage = {
         role: "assistant",

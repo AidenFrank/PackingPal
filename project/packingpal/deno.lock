@@ -15,7 +15,9 @@
         "npm:@tailwindcss/postcss@4",
         "npm:eslint-config-next@15.5.4",
         "npm:eslint@9",
+        "npm:jspdf@^4.1.0",
         "npm:next@15.5.9",
+        "npm:openai@^6.22.0",
         "npm:react-dom@19.1.0",
         "npm:react@19.1.0",
         "npm:tailwindcss@^4.1.16"
