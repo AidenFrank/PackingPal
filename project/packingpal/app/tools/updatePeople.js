@@ -1,3 +1,5 @@
+import { mergeDeep } from "@/app/lib/mergeDeep";
+
 export const tool = {
   name: "updatePeople",
 
@@ -21,7 +23,9 @@ export const tool = {
   },
 
   handler: (args, packingList) => {
-    packingList.basicDetails.people = args.people;
+    mergeDeep(packingList.basicDetails, {
+      people: args.people,
+    });
     console.log("People updated to :", packingList.basicDetails.people);
     return packingList;
   },

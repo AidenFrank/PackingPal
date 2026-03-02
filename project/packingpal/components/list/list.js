@@ -19,6 +19,19 @@ export default function List() {
   const generatePdf = (data) => {
     if (!data) return;
 
+    // Helper function to only render data if it exists
+    const addLineIfExists = (label, value) => {
+      if (
+        value !== undefined &&
+        value !== null &&
+        value !== "" &&
+        value !== 0
+      ) {
+        doc.text(`${label}: ${value}`, 10, y);
+        y += 8;
+      }
+    };
+
     const doc = new jsPDF();
 
     let y = 20; // start a little lower for top margin
@@ -38,15 +51,69 @@ export default function List() {
     y += 15; // spacing after title
 
     // --- Basic Details ---
-    doc.setFontSize(12);
-    doc.setFont("helvetica", "normal"); // normal text
+    doc.setFont("helvetica", "normal");
+
     if (data.basicDetails) {
-      doc.text(`Location: ${data.basicDetails.location || "-"}`, 10, y);
+      const { location, people, timeframe } = data.basicDetails;
+
+      addLineIfExists("Location", location);
+      addLineIfExists("People", people);
+
+      // --- Timeframe Section ---
+      if (timeframe) {
+        const {
+          durationDays,
+          durationNights,
+          departDay,
+          departTime,
+          returnDay,
+          returnTime,
+          season,
+        } = timeframe;
+
+        // Only show section if something exists
+        const hasTimeframeData =
+          durationDays ||
+          durationNights ||
+          departDay ||
+          departTime ||
+          returnDay ||
+          returnTime ||
+          season;
+
+        if (hasTimeframeData) {
+          y += 4;
+
+          doc.setFont("helvetica", "bold");
+          doc.text("Trip Details", 10, y);
+          y += 8;
+
+          doc.setFont("helvetica", "normal");
+
+          addLineIfExists("Days", durationDays);
+          addLineIfExists("Nights", durationNights);
+
+          if (departDay || departTime) {
+            addLineIfExists(
+              "Departure",
+              `${departDay || ""} ${departTime || ""}`.trim(),
+            );
+          }
+
+          if (returnDay || returnTime) {
+            addLineIfExists(
+              "Return",
+              `${returnDay || ""} ${returnTime || ""}`.trim(),
+            );
+          }
+
+          addLineIfExists("Season", season);
+
+          y += 4;
+        }
+      }
+
       y += 8;
-      doc.text(`Days: ${data.basicDetails.durationDays || 0}`, 10, y);
-      y += 8;
-      doc.text(`People: ${data.basicDetails.people || 0}`, 10, y);
-      y += 12;
     }
 
     // --- Packing List ---

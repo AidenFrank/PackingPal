@@ -12,11 +12,11 @@ const openai = new OpenAI({
 // API route to handle chat messages
 export async function POST(req) {
   try {
-    // Gets messages from frontend
-    const { messages } = await req.json();
+    // Gets messages and campingTrip json from frontend
+    const { messages, campingTrip: incomingTrip } = await req.json();
 
-    // Temporary list to add to
-    const campingTrip = createCampingTemplate();
+    // Gets the incomingTrip if it exists, otherwise creates a new one
+    const campingTrip = incomingTrip || createCampingTemplate();
 
     // Array of tools the AI can call to update the list
     const tools = Object.values(toolRegistry).map((tool) => tool.definition);
@@ -41,8 +41,9 @@ export async function POST(req) {
           When the user provides details about the number of people,
           you MUST call the updatePeople function.
 
-          When the user provides details about the number of days,
-          you MUST call the updateDays function.
+          When the user provides details about the time frame of the trip, such as number of days/nights, depart/return time/day, season, if the dates are flexible,
+          you MUST call the updateTimeFrame function and update the appropriate values AND
+          if the user provides a month, you fill in the season with the season that month is part of NOT the month itself.
 
           
           `,

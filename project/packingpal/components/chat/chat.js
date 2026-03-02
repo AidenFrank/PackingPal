@@ -12,6 +12,8 @@ export default function Chat() {
         "Hello! I'm PackingPal, a helpful tool designed to help you create the perfect packing list for your camping trip. Why don't you start by telling me a bit about your trip?",
     },
   ]);
+  // Used to hold campingTrip json
+  const [campingTrip, setCampingTrip] = useState(null);
   // Used to hold user input
   const [input, setInput] = useState("");
   // Used to set thinking/not thinking
@@ -46,10 +48,11 @@ export default function Chat() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ messages: updatedMessages }),
+        body: JSON.stringify({ messages: updatedMessages, campingTrip }),
       });
       // Recieves response from openai
       const data = await response.json();
+      setCampingTrip(data.campingTrip);
       updatePDF(data.campingTrip);
       // Creates message from openai
       const botMessage = {

@@ -3,7 +3,16 @@ export function createCampingTemplate() {
     basicDetails: {
       title: "",
       location: "",
-      durationDays: 0,
+      timeframe: {
+        durationDays: 0,
+        durationNights: 0,
+        departDay: "",
+        departTime: "",
+        returnDay: "",
+        returnTime: "",
+        season: "",
+        flexible: false,
+      },
       people: 0,
     },
     packingList: {},

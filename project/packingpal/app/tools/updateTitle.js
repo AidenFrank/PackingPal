@@ -1,3 +1,5 @@
+import { mergeDeep } from "@/app/lib/mergeDeep";
+
 export const tool = {
   name: "updateTitle",
 
@@ -20,7 +22,9 @@ export const tool = {
   },
 
   handler: (args, packingList) => {
-    packingList.basicDetails.title = args.title;
+    mergeDeep(packingList.basicDetails, {
+      title: args.title,
+    });
     console.log("Title updated to :", packingList.basicDetails.title);
     return packingList;
   },

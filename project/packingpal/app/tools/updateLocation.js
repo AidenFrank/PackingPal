@@ -1,3 +1,5 @@
+import { mergeDeep } from "@/app/lib/mergeDeep";
+
 export const tool = {
   name: "updateLocation",
 
@@ -20,7 +22,9 @@ export const tool = {
   },
 
   handler: (args, packingList) => {
-    packingList.basicDetails.location = args.location;
+    mergeDeep(packingList.basicDetails, {
+      location: args.location,
+    });
     console.log("Location updated to :", packingList.basicDetails.location);
     return packingList;
   },
