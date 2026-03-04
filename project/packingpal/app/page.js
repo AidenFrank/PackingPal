@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {useState} from "react";
 import Chat from "@/components/chat/chat";
+import List from "@/components/list/list";
 
 
 export default function Home() {
@@ -19,9 +20,12 @@ export default function Home() {
         </div>
       </div>
       {/*Packing List Section*/}
-      <div className="w-1/2 p-8 backdrop-blur-sm bg-white/50 text-black">
+      <div className="h-screen w-1/2 p-6 backdrop-blur-sm bg-white/50 text-black flex flex-col">
         <h1 className="text-3xl font-bold mb-6 text-center">Packing List</h1>
         {/*List + checboxes would go here*/}
+        <div className="flex-1 min-h-0">
+          <List />
+        </div>
       </div>
 
       {/* Logo in top-left */}

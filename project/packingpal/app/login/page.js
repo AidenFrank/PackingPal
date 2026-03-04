@@ -1,17 +1,46 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { supabase } from "../../lib/supabaseClient";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Temporary
-    console.log("Login submitted:", { email, password });
-    // later will need to send to database / auth service
+    try {
+      // query custom table using Email column
+      const { data, error } = await supabase
+        .from("account")
+        .select("Password")
+        .eq("Email", email)
+        .single();
+
+      if (error || !data) {
+        console.error("Login lookup error", error);
+        alert("Invalid email or password");
+        return;
+      }
+
+      if (data.Password !== password) {
+        alert("Invalid email or password");
+        return;
+      }
+
+      // record success and redirect
+      try {
+        localStorage.setItem("userEmail", email);
+      } catch {}
+      router.push("/");
+    } catch (err) {
+      console.error(err);
+      alert("Unexpected error during login");
+    }
   };
 
   return (
