@@ -1,4 +1,4 @@
-# Packing Pal
+# PackingPal
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@
 
 ### Project Abstract
 
-Packing Pal is a tool designed to help people conveniently formulate and share highly customized packing lists built with React and utilizing AI technology.
+PackingPal is a tool designed to help people conveniently formulate and share highly customized packing lists built with React and utilizing AI technology.
 
 ## Project Description
 
@@ -145,15 +145,15 @@ Monica:
 - Group meetings: 13
 - Creating the home page, splitting the chat and list sides, designing logo, adding logo to website: 7
 - Created Login Page: 3
-
-Total: 40 Hours 
+- Worked on having the login page connect with home page and sign up page: 3 
+Total: 43 Hours 
 
 
 Jessica:
-- researching related technologies/tools and tutorials: 3 hours
+- researching related technologies/tools and tutorials: 3.5 hours
 - assignments worked on outside of the group (professional biography, concerns essay, peer reviews, design report/presentation, etc): 13 hours
-- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 15 hours
-- brainstorming, researching, and implementing database schema: 5 hours
+- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 17.5 hours
+- brainstorming, researching, and implementing database schema: 6 hours
 - reviewing pull requests: 1 hour
 
-Total: 37 hours
+Total: 41 hours
