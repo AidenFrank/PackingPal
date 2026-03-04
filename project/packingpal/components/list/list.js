@@ -142,7 +142,7 @@ export default function List() {
       {pdfUrl ? (
         <iframe src={pdfUrl} className="flex-1 w-full border-none" />
       ) : (
-        <p>No PDF generated yet.</p>
+        <p></p>
       )}
     </div>
   );

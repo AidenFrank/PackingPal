@@ -14,7 +14,7 @@ export default function Home() {
         </div>
       </div>
       {/*Packing List Section*/}
-      <div className="h-screen w-1/2 p-8 backdrop-blur-sm bg-white/50 text-black flex flex-col">
+      <div className="h-screen w-1/2 p-6 backdrop-blur-sm bg-white/50 text-black flex flex-col">
         <h1 className="text-3xl font-bold mb-6 text-center">Packing List</h1>
         {/*List + checboxes would go here*/}
         <div className="flex-1 min-h-0">
