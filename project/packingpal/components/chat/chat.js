@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { updatePDF } from "@/app/lib/pdfStore";
 
+const MAX_CHARS = 1500;
+
 export default function Chat() {
   // Used to hold messages, also includes default message
   const [messages, setMessages] = useState([
@@ -20,6 +22,14 @@ export default function Chat() {
   const [loading, setLoading] = useState(false);
   // Used to mark the bottom of the chat, so auto-scroll can work
   const bottomRef = useRef(null);
+  // Used to define the textarea and set boundaries
+  const textareaRef = useRef(null);
+  const handleInput = (e) => {
+    setInput(e.target.value);
+    const el = textareaRef.current;
+    el.style.height = "auto"; // reset height
+    el.style.height = Math.min(el.scrollHeight, 150) + "px"; // grow up to 150px
+  };
   // Auto-scroll when messages fill the bottom of the chat
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -28,6 +38,11 @@ export default function Chat() {
   async function sendMessage() {
     // Stops blank messages
     if (!input.trim()) return;
+    // Prevents messages that are too long
+    if (input.length > MAX_CHARS) {
+      alert("Message exceeds the character count.");
+      return;
+    }
     // Input from user
     const userMessage = {
       role: "user",
@@ -80,30 +95,50 @@ export default function Chat() {
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`max-w-[70%] px-4 py-2 rounded-xl text-sm ${
+            className={`max-w-[70%] px-4 py-2 text-sm relative ${
               msg.role === "user"
-                ? "self-start bg-gray-200 text-gray-900"
-                : "self-end bg-[#668a7a] text-white"
+                ? "self-end bg-gray-200 text-gray-900 rounded-2xl rounded-br-sm"
+                : "self-start bg-[#668a7a] text-white rounded-2xl rounded-bl-sm"
             }`}
           >
             {msg.content}
           </div>
         ))}
         {loading && (
-          <div className="self-end max-w-[70%] px-4 py-2 rounded-xl bg-[#668a7a] text-white text-sm animate-pulse">
+          <div className="self-start max-w-[70%] px-4 py-2 rounded-2xl rounded-bl-sm bg-[#668a7a] text-white text-sm animate-pulse">
             Thinking...
           </div>
         )}
 
         <div ref={bottomRef} />
       </div>
+      {/*Input count*/}
+      <div
+        className={`text-xs px-2 p-1 text-left ${
+          input.length > MAX_CHARS * 0.9 ? "text-red-500" : "text-gray-500"
+        }`}
+      >
+        {input.length}/{MAX_CHARS}
+      </div>
       {/* Input Area */}
       <div className="flex rounded-lg bg-white">
-        <input
-          className="flex-1 px-4 py-3 outline-none text-sm text-black"
+        <textarea
+          ref={textareaRef}
+          className="flex-1 px-4 py-3 outline-none text-sm text-black resize-none overflow-y-auto max-h-[150px]"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+          maxLength={MAX_CHARS}
+          onChange={handleInput}
+          onChangeCapture={(e) => {
+            if (e.target.value.length <= MAX_CHARS) {
+              setInput(e.target.value);
+            }
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              sendMessage();
+            }
+          }}
           placeholder="Type a message..."
         />
         <button
