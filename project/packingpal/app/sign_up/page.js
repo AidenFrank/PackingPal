@@ -1,14 +1,17 @@
 "use client";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { supabase } from "../../lib/supabaseClient";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -16,9 +19,35 @@ export default function SignupPage() {
       return;
     }
 
-    console.log("SIGNUP submitted:", { email, password });
+    try {
+      // check for existing row using Email column
+      const { data: existing, error: lookupError } = await supabase
+        .from("account")
+        .select("Email")
+        .eq("Email", email)
+        .single();
 
-    // later: POST /api/signup
+      if (existing) {
+        alert("An account with that email already exists");
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("account")
+        .insert({ Email: email, Password: password });
+
+      if (error) {
+        console.error("Error inserting user", error);
+        alert(error.message);
+        return;
+      }
+
+      alert("Signup successful! You can now log in.");
+      router.push("/login");
+    } catch (err) {
+      console.error(err);
+      alert("Unexpected error during signup");
+    }
   };
 
   return (
