@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { toolRegistry } from "@/app/tools";
 import { executeTool } from "@/app/lib/toolExecutor";
 import { createCampingTemplate } from "@/app/templates/campingtemplate";
+import { updatePDF } from "@/app/lib/pdfStore";
 
 // Get OpenAI API key from .env
 const openai = new OpenAI({
@@ -11,11 +12,11 @@ const openai = new OpenAI({
 // API route to handle chat messages
 export async function POST(req) {
   try {
-    // Gets messages from frontend
-    const { messages } = await req.json();
+    // Gets messages and campingTrip json from frontend
+    const { messages, campingTrip: incomingTrip } = await req.json();
 
-    // Temporary list to add to
-    const campingTrip = createCampingTemplate();
+    // Gets the incomingTrip if it exists, otherwise creates a new one
+    const campingTrip = incomingTrip || createCampingTemplate();
 
     // Array of tools the AI can call to update the list
     const tools = Object.values(toolRegistry).map((tool) => tool.definition);
@@ -28,8 +29,23 @@ export async function POST(req) {
           You are PackingPal, a tool that is made to help people create packing lists for their camping trips.
           You should begin by asking the user about their trip and various details they have on it.
 
+          When you call a tool to update the information,
+          do NOT list out what you updated, you can just say that the information was updated in the packing list.
+
+          When the user provides any details at all determine if the information is relevant enough to be included in the title,
+          then you can call the updateTitle function.
+
           When the user provides details about the location,
           you MUST call the updateLocation function.
+
+          When the user provides details about the number of people,
+          you MUST call the updatePeople function.
+
+          When the user provides details about the time frame of the trip, such as number of days/nights, depart/return time/day, season, if the dates are flexible,
+          you MUST call the updateTimeFrame function and update the appropriate values AND
+          if the user provides a month, you fill in the season with the season that month is part of NOT the month itself.
+
+          
           `,
       },
       ...messages,
@@ -66,7 +82,7 @@ export async function POST(req) {
           });
         }
         // After all tools execute, update PDF
-        //await updatePDF(campingTrip);
+        updatePDF(campingTrip);
         continue;
       }
 

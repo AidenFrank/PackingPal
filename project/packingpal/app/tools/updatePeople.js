@@ -1,31 +1,32 @@
 import { mergeDeep } from "@/app/lib/mergeDeep";
 
 export const tool = {
-  name: "updateLocation",
+  name: "updatePeople",
 
   definition: {
     type: "function",
     function: {
-      name: "updateLocation",
-      description: "Updates the location of the trip",
+      name: "updatePeople",
+
+      description: "Updates the number of people for the trip",
       parameters: {
         type: "object",
         properties: {
-          location: {
-            type: "string",
-            description: "The location of the trip",
+          people: {
+            type: "number",
+            description: "The number of people for the trip",
           },
         },
-        required: ["location"],
+        required: ["people"],
       },
     },
   },
 
   handler: (args, packingList) => {
     mergeDeep(packingList.basicDetails, {
-      location: args.location,
+      people: args.people,
     });
-    console.log("Location updated to :", packingList.basicDetails.location);
+    console.log("People updated to :", packingList.basicDetails.people);
     return packingList;
   },
 };
