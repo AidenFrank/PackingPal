@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -56,6 +57,16 @@ export default function LoginPage() {
         <h1 className="text-3xl font-bold text-center text-slate-800">
           Welcome Back
         </h1>
+        {/* Logo in top-left */}
+      <div className="absolute top-2 left-2 rounded-corners overflow-hidden">
+        <Image
+            src="/images/clear_logo.png"
+            alt="PackingPal Logo"
+            width={100} // adjust as needed
+            height={100}
+            className="rounded-xl shadow-lg"
+        />
+      </div>
 
         <p className="text-center text-slate-500 mt-2 mb-8">
           Let’s get you packed for your next adventure.
