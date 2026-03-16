@@ -64,7 +64,7 @@ export default function LoginPage() {
             alt="PackingPal Logo"
             width={100} // adjust as needed
             height={100}
-            className="rounded-xl shadow-lg"
+            className="shadow-lg"
         />
       </div>
 
@@ -124,7 +124,7 @@ export default function LoginPage() {
           Don’t have an account?{" "}
           <Link
             href="/sign_up"
-            className="text-[#435A50] font-medium hover:underline"
+            className="text-blue-600 font-medium hover:underline"
           >
             Sign up
           </Link>

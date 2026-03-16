@@ -40,11 +40,11 @@ export default function Home() {
 
       {/*Hamburger Button*/}
       <div className="absolute top-4 right-4">
-        <button className="flex flex-col justify-center w-8 h-6 focus:outline-none"
+        <button className="flex flex-col justify-center space-y-2 w-8 h-8 focus:outline-none"
         onClick={()=> setMenuOpen(!menuOpen)}>
-          <span className="block h-2 w-full bg-black rounded"></span>
-          <span className="block h-2 w-full bg-white rounded"></span>
-          <span className="block h-2 w-full bg-black rounded"></span>
+          <span className="block h-1.5 w-full bg-black rounded"></span>
+          <span className="block h-1.5 w-full bg-black rounded"></span>
+          <span className="block h-1.5 w-full bg-black rounded"></span>
         </button>
 
        {/*Slide-in Side Menu*/}
