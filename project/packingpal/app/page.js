@@ -33,7 +33,8 @@ export default function Home() {
           alt="PackingPal Logo"
           width={100} // adjust as needed
           height={100}
-          className="rounded-xl shadow-lg"
+          border-radius="0"
+          className="shadow-lg"
         />
       </div>
 
@@ -82,7 +83,7 @@ export default function Home() {
 
 
 
-       {/*Optional overlay*/}
+       {/* Optional overlay
         {menuOpen && (
             <div className="absolute right-0 mt-2 w-32 bg-white rounded shadow-lg text-black">
             <Link
@@ -95,7 +96,7 @@ export default function Home() {
               
 
             </div>
-        )}
+        )} */}
 
       </div>
     </div>
