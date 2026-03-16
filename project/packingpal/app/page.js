@@ -11,14 +11,14 @@ export default function Home() {
   return (
     <div className="relative min-h-screen flex bg-gradient-to-br from-slate-900 to-slate-700">
       {/*Chat Section*/}
-      <div className="h-screen w-1/2 p-6 backdrop-blur-sm bg-black/40 text-white border-r border-white/20 flex flex-col">
+      <div className="h-screen w-1/2 p-6 backdrop-blur-sm bg-gradient-to-br from-[#E97824] to-[#FFF3EB] text-white border-r border-white/20 flex flex-col">
         <h1 className="text-3xl font-bold mb-6 text-center">PackingPal Chat</h1>
         <div className="flex-1 min-h-0">
           <Chat />
         </div>
       </div>
       {/*Packing List Section*/}
-      <div className="h-screen w-1/2 p-6 backdrop-blur-sm bg-white/50 text-black flex flex-col">
+      <div className="h-screen w-1/2 p-6  backdrop-blur-sm bg-gradient-to-br from-[#FFF3EB] to-[#435A50] text-black flex flex-col">
         <h1 className="text-3xl font-bold mb-6 text-center">Packing List</h1>
         {/*List + checboxes would go here*/}
         <div className="flex-1 min-h-0">
