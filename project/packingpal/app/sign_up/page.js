@@ -5,6 +5,7 @@ import { useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 
 export default function SignupPage() {
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -51,7 +52,8 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-700">
+    <div className="min-h-screen flex items-center justify-center 
+                    bg-gradient-to-br from-[#435A50] to-[#3b4f46] px-4">
       <form
         className="w-full max-w-md bg-white/90 p-8 rounded-xl shadow-xl"
         onSubmit={handleSubmit}
@@ -59,6 +61,21 @@ export default function SignupPage() {
         <h1 className="text-3xl font-bold mb-6 text-center text-slate-800">
           Create an Account
         </h1>
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-1 text-slate-700">
+            First Name
+          </label>
+          <input
+            type="text"
+            required
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className="w-full px-4 py-3 border border-slate-300 
+                      rounded-lg focus:outline-none 
+                      focus:ring-2 focus:ring-[#E97824] 
+                      focus:border-transparent transition text-black"
+          />
+        </div>
 
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1 text-slate-700">
@@ -69,7 +86,10 @@ export default function SignupPage() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 text-black"
+            className="w-full px-4 py-3 border border-slate-300 
+                      rounded-lg focus:outline-none 
+                      focus:ring-2 focus:ring-[#E97824] 
+                      focus:border-transparent transition text-black"
             placeholder="you@example.com"
           />
         </div>
@@ -83,7 +103,10 @@ export default function SignupPage() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 text-black"
+            className="w-full px-4 py-3 border border-slate-300 
+                      rounded-lg focus:outline-none 
+                      focus:ring-2 focus:ring-[#E97824] 
+                      focus:border-transparent transition text-black"
             placeholder="Enter a password"
           />
         </div>
@@ -97,14 +120,17 @@ export default function SignupPage() {
             required
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 text-black"
+            className="w-full px-4 py-3 border border-slate-300 
+                      rounded-lg focus:outline-none 
+                      focus:ring-2 focus:ring-[#E97824] 
+                      focus:border-transparent transition text-black"
             placeholder="Enter the password again"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700"
+          className="w-full bg-[#E97824] text-white py-2 px-4 rounded-md hover:bg-[#cf671d] transition-colors"
         >
           Sign Up
         </button>
