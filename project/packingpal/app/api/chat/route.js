@@ -38,7 +38,7 @@ export async function POST(req) {
           When the user provides details about the location,
           you MUST call the updateLocation function.
 
-          When the user provides details about the number of people,
+          When the user provides details about the people on the trip, such as their names or roles,
           you MUST call the updatePeople function.
 
           When the user provides details about the time frame of the trip, such as number of days/nights, depart/return time/day, season, if the dates are flexible,

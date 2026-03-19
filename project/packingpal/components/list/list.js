@@ -19,6 +19,28 @@ export default function List() {
   const generatePdf = (data) => {
     if (!data) return;
 
+    const doc = new jsPDF();
+
+    const marginLeft = 15;
+    const marginRight = 15;
+    const marginTop = 20;
+    const marginBottom = 20;
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const maxTextWidth = pageWidth - marginLeft - marginRight;
+
+    let y = marginTop;
+
+    const checkPageBreak = (linesCount = 1) => {
+      const lineHeight = 6;
+      if (y + linesCount * lineHeight > pageHeight - marginBottom) {
+        doc.addPage();
+        y = marginTop;
+      }
+    };
+
     // Helper function to only render data if it exists
     const addLineIfExists = (label, value) => {
       if (
@@ -27,28 +49,39 @@ export default function List() {
         value !== "" &&
         value !== 0
       ) {
-        doc.text(`${label}: ${value}`, 10, y);
-        y += 8;
+        const text = `${label}: ${value}`;
+        const lines = doc.splitTextToSize(text, maxTextWidth);
+        checkPageBreak(lines.length);
+
+        doc.text(lines, marginLeft, y);
+        y += lines.length * 6;
       }
     };
-
-    const doc = new jsPDF();
-
-    let y = 20; // start a little lower for top margin
 
     // --- Title Styling ---
     const title = data.basicDetails?.title || "Camping Trip";
     doc.setFont("helvetica", "bold"); // bold font
     doc.setFontSize(22); // bigger font for title
 
-    // Center the title
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const titleWidth = doc.getTextWidth(title);
-    const x = (pageWidth - titleWidth) / 2;
+    // Title
+    const usableWidth = pageWidth - marginLeft - marginRight;
 
-    doc.text(title, x, y);
+    // Split title into multiple lines that fit within margins, limited to 2 lines
+    const titleLines = doc.splitTextToSize(title, usableWidth).slice(0, 2);
 
-    y += 15; // spacing after title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
+
+    // Center EACH line
+    titleLines.forEach((line) => {
+      const lineWidth = doc.getTextWidth(line);
+      const x = marginLeft + (usableWidth - lineWidth) / 2;
+
+      doc.text(line, x, y);
+      y += 10; // line spacing for title
+    });
+
+    y += 5; // extra spacing after title
 
     // --- Basic Details ---
     doc.setFont("helvetica", "normal");
@@ -57,7 +90,25 @@ export default function List() {
       const { location, people, timeframe } = data.basicDetails;
 
       addLineIfExists("Location", location);
-      addLineIfExists("People", people);
+      if (people && people.length > 0) {
+        // Show total count
+        doc.text(`People: ${people.length}`, 10, y);
+        y += 8;
+
+        // List each person
+        people.forEach((person, index) => {
+          if (!person?.name) return;
+
+          const label = person.role
+            ? `${index + 1}. ${person.name} (${person.role})`
+            : `${index + 1}. ${person.name}`;
+
+          doc.text(label, 15, y);
+          y += 6;
+        });
+
+        y += 4;
+      }
 
       // --- Timeframe Section ---
       if (timeframe) {
