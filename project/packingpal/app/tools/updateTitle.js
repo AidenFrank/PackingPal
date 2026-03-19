@@ -25,7 +25,6 @@ export const tool = {
     mergeDeep(packingList.basicDetails, {
       title: args.title,
     });
-    console.log("Title updated to :", packingList.basicDetails.title);
     return packingList;
   },
 };

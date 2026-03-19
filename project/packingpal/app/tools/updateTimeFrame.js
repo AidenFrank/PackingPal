@@ -37,8 +37,6 @@ export const tool = {
 
     mergeDeep(packingList.basicDetails.timeframe, args.timeframe);
 
-    console.log("Updated timeframe:", args.timeframe);
-
     return packingList;
   },
 };

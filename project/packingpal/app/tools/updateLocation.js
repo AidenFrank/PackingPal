@@ -25,7 +25,6 @@ export const tool = {
     mergeDeep(packingList.basicDetails, {
       location: args.location,
     });
-    console.log("Location updated to :", packingList.basicDetails.location);
     return packingList;
   },
 };

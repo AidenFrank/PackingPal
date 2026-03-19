@@ -36,8 +36,6 @@ export const tool = {
         role: p.role || "",
       })),
     });
-
-    console.log("People updated:", packingList.basicDetails.people);
     return packingList;
   },
 };

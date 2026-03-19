@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import { subscribeToPDF } from "@/app/lib/pdfStore";
+import { createLayout } from "./layout/layout";
 
 export default function List() {
   const [pdfUrl, setPdfUrl] = useState(null);
@@ -18,51 +19,56 @@ export default function List() {
 
   const generatePdf = (data) => {
     if (!data) return;
-
     const doc = new jsPDF();
+    const layout = createLayout(doc);
 
-    const marginLeft = 15;
-    const marginRight = 15;
-    const marginTop = 20;
-    const marginBottom = 20;
+    const {
+      marginLeft,
+      usableWidth,
+      lineHeight,
+      addText,
+      addCenteredText,
+      ensureSpace,
+      addHeader,
+      addDivider,
+    } = layout;
 
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
 
-    const maxTextWidth = pageWidth - marginLeft - marginRight;
+    addCenteredText("Camping Trip Title Goes Here That Might Be Long", 2);
 
-    let y = marginTop;
+    layout.y += 4;
 
-    const checkPageBreak = (linesCount = 1) => {
-      const lineHeight = 6;
-      if (y + linesCount * lineHeight > pageHeight - marginBottom) {
-        doc.addPage();
-        y = marginTop;
-      }
-    };
+    //---Location---
 
-    // Helper function to only render data if it exists
-    const addLineIfExists = (label, value) => {
-      if (
-        value !== undefined &&
-        value !== null &&
-        value !== "" &&
-        value !== 0
-      ) {
-        const text = `${label}: ${value}`;
-        const lines = doc.splitTextToSize(text, maxTextWidth);
-        checkPageBreak(lines.length);
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
 
-        doc.text(lines, marginLeft, y);
-        y += lines.length * 6;
-      }
-    };
+    addHeader("Location");
+    addText("Hocking Hills State Park");
+    addText("123 Forest Rd, Ohio");
 
-    // --- Title Styling ---
-    const title = data.basicDetails?.title || "Camping Trip";
-    doc.setFont("helvetica", "bold"); // bold font
-    doc.setFontSize(22); // bigger font for title
+    addDivider();
 
+    //---People---
+
+    addHeader("People");
+    addText("Total: 3");
+    addText("- John", 5);
+    addText("- Sarah (Driver)", 5);
+    addText("- Mike", 5);
+
+    addDivider();
+
+    //---Time Frame---
+
+    addHeader("Trip Details");
+    addText("Days: 3");
+    addText("Nights: 2");
+    addText("Departure: Friday 8:00 AM");
+    addText("Return: Sunday 5:00 PM");
+    /*
     // Title
     const usableWidth = pageWidth - marginLeft - marginRight;
 
@@ -71,7 +77,7 @@ export default function List() {
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(22);
-
+    
     // Center EACH line
     titleLines.forEach((line) => {
       const lineWidth = doc.getTextWidth(line);
@@ -166,7 +172,7 @@ export default function List() {
 
       y += 8;
     }
-
+    */
     // --- Packing List ---
     if (data.packingList) {
       Object.entries(data.packingList).forEach(([category, items]) => {
