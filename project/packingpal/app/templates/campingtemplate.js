@@ -5,7 +5,6 @@ export function createCampingTemplate() {
       location: {
         name: "",
         address: "",
-        type: "",
       },
       travel: {
         method: "",

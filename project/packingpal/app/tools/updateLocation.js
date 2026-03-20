@@ -12,8 +12,11 @@ export const tool = {
         type: "object",
         properties: {
           location: {
-            type: "string",
-            description: "The location of the trip",
+            type: "object",
+            properties: {
+              name: { type: "string" },
+              address: { type: "string" },
+            },
           },
         },
         required: ["location"],

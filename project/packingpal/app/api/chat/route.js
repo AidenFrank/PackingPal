@@ -32,10 +32,10 @@ export async function POST(req) {
           When you call a tool to update the information,
           do NOT list out what you updated, you can just say that the information was updated in the packing list.
 
-          When the user provides any details at all determine if the information is relevant enough to be included in the title,
+          When the user provides any details at all, determine if the information is relevant enough to be included in the title,
           then you can call the updateTitle function.
 
-          When the user provides details about the location,
+          When the user provides details about the location such as the name, address, or type of location,
           you MUST call the updateLocation function.
 
           When the user provides details about the people on the trip, such as their names or roles,
@@ -81,8 +81,6 @@ export async function POST(req) {
             content: JSON.stringify(result),
           });
         }
-        // After all tools execute, update PDF
-        updatePDF(campingTrip);
         continue;
       }
 

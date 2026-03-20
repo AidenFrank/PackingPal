@@ -20,6 +20,7 @@ export const tool = {
               departTime: { type: "string" },
               returnDay: { type: "string" },
               returnTime: { type: "string" },
+              month: { type: "string" },
               season: { type: "string" },
               flexible: { type: "boolean" },
             },
