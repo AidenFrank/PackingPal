@@ -8,18 +8,18 @@ export function createCampingTemplate() {
       },
       travel: {
         method: "",
-        distanceMiles: 0,
+        distanceMiles: null,
         estimatedTravelTime: "",
         vehicle: "",
       },
       weather: {
-        expectedHigh: 0,
-        expectedLow: 0,
+        expectedHigh: null,
+        expectedLow: null,
         conditions: "",
       },
       timeframe: {
-        durationDays: 0,
-        durationNights: 0,
+        durationDays: null,
+        durationNights: null,
         departDay: "",
         departTime: "",
         returnDay: "",

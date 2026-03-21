@@ -54,25 +54,10 @@ export default function List() {
     ];
 
     sections.forEach(({ fn, data }) => {
-      if (!data || (Array.isArray(data) && data.length === 0)) return;
-
-      fn(layout, data);
-      addDivider();
+      const didRender = fn(layout, data);
+      if (didRender) addDivider();
     });
-    /*
-    addHeader("Location");
-    addText("Hocking Hills State Park");
-    addText("123 Forest Rd, Ohio");
-    */
 
-    //---Time Frame---
-    /*
-    addHeader("Trip Details");
-    addText("Days: 3");
-    addText("Nights: 2");
-    addText("Departure: Friday 8:00 AM");
-    addText("Return: Sunday 5:00 PM");
-    */
     const url = doc.output("bloburl");
     setPdfUrl(url);
   };

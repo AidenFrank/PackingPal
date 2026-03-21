@@ -67,8 +67,13 @@ export default function Chat() {
       });
       // Recieves response from openai
       const data = await response.json();
-      setCampingTrip(data.campingTrip);
-      updatePDF(data.campingTrip);
+      // Check output of server in the inspect element log
+      //console.log("Response from server:", data);
+      // Only update PDF if tools were used
+      if (data.usedTools) {
+        setCampingTrip(data.campingTrip);
+        updatePDF(data.campingTrip);
+      }
       // Creates message from openai
       const botMessage = {
         role: "assistant",

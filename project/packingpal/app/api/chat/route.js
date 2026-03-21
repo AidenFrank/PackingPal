@@ -39,7 +39,8 @@ export async function POST(req) {
           you MUST call the updateLocation function.
 
           When the user provides details about the people on the trip, such as their names or roles,
-          you MUST call the updatePeople function.
+          you MUST call the updatePeople function AND
+          the names must use proper capitalization.
 
           When the user provides details about the time frame of the trip, such as number of days/nights, depart/return time/day, season, if the dates are flexible,
           you MUST call the updateTimeFrame function and update the appropriate values AND
@@ -50,6 +51,9 @@ export async function POST(req) {
       },
       ...messages,
     ];
+
+    // Keeps track of whether any tools were used in the current request
+    let usedTools = false;
 
     // Responds to message and checks for any tool calls
     while (true) {
@@ -62,9 +66,10 @@ export async function POST(req) {
 
       // Basic response message
       const message = completion.choices[0].message;
-
       // Checks for tool calls
       if (message.tool_calls) {
+        // Tool was used, set to true so the frontend knows to update the PDF
+        usedTools = true;
         // Adds the response message to the conversation
         conversation.push(message);
         // Loops through toolCalls and call function
@@ -87,6 +92,7 @@ export async function POST(req) {
       return Response.json({
         reply: message.content,
         campingTrip,
+        usedTools,
       });
     }
   } catch (error) {
