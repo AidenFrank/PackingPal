@@ -12,6 +12,14 @@ const openai = new OpenAI({
 // API route to handle chat messages
 export async function POST(req) {
   try {
+    // Gets today's date to be passed into the content
+    const today = new Date().toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
     // Gets messages and campingTrip json from frontend
     const { messages, campingTrip: incomingTrip } = await req.json();
 
@@ -28,6 +36,23 @@ export async function POST(req) {
         content: `
           You are PackingPal, a tool that is made to help people create packing lists for their camping trips.
           You should begin by asking the user about their trip and various details they have on it.
+
+          Rules:
+          - Do not overwrite existing data unless explicitly told
+          - Only add to fields that are missing or being updated
+          - Keep responses concise and helpful
+          - Do not hallucinate missing details
+          - If the user provides any information that updates the trip (people, location, items, timeframe, etc.), you MUST call the appropriate tool
+          - Do NOT respond with a normal message if a tool should be used
+          - Only respond with a normal message AFTER all tool calls are complete
+          - Never say you updated something unless you actually called a tool
+          - If you do not call a tool, you must not claim that any data was updated
+
+          Today's date is ${today}.
+          IMPORTANT:
+          - Always assume this is the current date
+          - Do NOT make up a different date
+          - If asked about "today", "tomorrow", etc., use this date
 
           When you call a tool to update the information,
           do NOT list out what you updated, you can just say that the information was updated in the packing list.
@@ -46,6 +71,18 @@ export async function POST(req) {
           you MUST call the updateTimeFrame function and update the appropriate values AND
           if the user provides a month, you fill in the season with the season that month is part of NOT the month itself.
 
+          When the user provides details about an item they want to bring,
+          you MUST call the updateItem function AND you MUST use ONLY the following categories when adding items:
+            - clothing: wearable items (shirts, socks, jackets)
+            - campinggear: tents, sleeping bags, tools
+            - foodcooking: food, water, cooking supplies
+            - healthsafety: first aid, medicine, sunscreen
+            - personalitems: toiletries, phone, wallet
+            - miscellaneous: anything else that does not clearly fit into the other categories
+          Do NOT create new categories.
+          If an item does not clearly fit, choose the closest category.
+          Use proper capitalization for item names but categories should be lowercase with no spaces.
+          If an item already exists, update the quantity instead of adding a duplicate.
           
           `,
       },

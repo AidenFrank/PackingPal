@@ -8,6 +8,7 @@ import { createLayout } from "./layout/layout";
 import { renderPeople } from "./sections/people";
 import { renderLocation } from "./sections/location";
 import { renderTimeFrame } from "./sections/timeframe";
+import { renderPackingList } from "./sections/packinglist";
 
 export default function List() {
   const [pdfUrl, setPdfUrl] = useState(null);
@@ -57,6 +58,8 @@ export default function List() {
       const didRender = fn(layout, data);
       if (didRender) addDivider();
     });
+
+    renderPackingList(layout, data.packingList);
 
     const url = doc.output("bloburl");
     setPdfUrl(url);

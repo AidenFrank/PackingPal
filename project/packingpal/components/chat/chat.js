@@ -5,6 +5,19 @@ import { updatePDF } from "@/app/lib/pdfStore";
 
 const MAX_CHARS = 1500;
 
+// Check for phrases that PackingPal updated something, so we know to check if a tool was used or not.
+function claimsUpdate(text) {
+  if (!text) return false;
+
+  const patterns = [
+    /i (have|\'ve) (updated|added|set|changed)/,
+    /i (updated|added|set|changed)/,
+    /your .* (has been|have been) (updated|added)/,
+  ];
+
+  return patterns.some((regex) => regex.test(text.toLowerCase()));
+}
+
 export default function Chat() {
   // Used to hold messages, also includes default message
   const [messages, setMessages] = useState([
@@ -69,6 +82,50 @@ export default function Chat() {
       const data = await response.json();
       // Check output of server in the inspect element log
       //console.log("Response from server:", data);
+      const didClaimUpdate = claimsUpdate(data.reply);
+
+      // This block of code is a safety net in case PackingPal claims to have updated something but didn't
+      if (didClaimUpdate && !data.usedTools) {
+        console.warn("Retrying due to missing tool call...");
+
+        const retryResponse = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            messages: [
+              ...updatedMessages,
+              {
+                role: "system",
+                content:
+                  "You must call a tool to perform updates. Do not respond with text only.",
+              },
+            ],
+            campingTrip,
+          }),
+        });
+
+        const retryData = await retryResponse.json();
+
+        // Apply tool updates if they worked this time
+        if (retryData.usedTools) {
+          setCampingTrip(retryData.campingTrip);
+          updatePDF(retryData.campingTrip);
+        }
+
+        // Show retry response instead
+        const botMessage = {
+          role: "assistant",
+          content: retryData.reply,
+        };
+
+        setMessages((prev) => [...prev, botMessage]);
+
+        setLoading(false);
+        return; // stop original flow
+      }
+
       // Only update PDF if tools were used
       if (data.usedTools) {
         setCampingTrip(data.campingTrip);

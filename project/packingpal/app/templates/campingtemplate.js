@@ -37,6 +37,43 @@ export function createCampingTemplate() {
         emergencyContacts: [],
       },
     },
-    packingList: {},
+    packingList: {
+      clothing: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      campinggear: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      foodcooking: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      healthsafety: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      personalitems: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      miscellaneous: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+    },
   };
 }
