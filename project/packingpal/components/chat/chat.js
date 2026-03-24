@@ -10,9 +10,9 @@ function claimsUpdate(text) {
   if (!text) return false;
 
   const patterns = [
-    /i (have|\'ve) (updated|added|set|changed)/,
-    /i (updated|added|set|changed)/,
-    /your .* (has been|have been) (updated|added)/,
+    /i (have|\'ve) (updated|added|removed|set|changed)/,
+    /i (updated|added|removed|set|changed)/,
+    /your .* (has been|have been) (updated|added|removed|set|changed)/,
   ];
 
   return patterns.some((regex) => regex.test(text.toLowerCase()));
