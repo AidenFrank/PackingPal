@@ -161,6 +161,7 @@ Total: 41 hours
 
 2026
 Group Meeting Hours:
+- 1/21 30 minutes: Virtual meeting on Discord to discuss 2nd semester plans
 - 3/23 1 hour: Met with project advisor John Lynch
 
 Aiden:
