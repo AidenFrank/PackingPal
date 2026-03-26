@@ -19,12 +19,11 @@ export default function LoginPage() {
       // query custom table using Email column
       const { data, error } = await supabase
         .from("account")
-        .select("Password")
+        .select("Password, FirstName")
         .eq("Email", email)
         .single();
 
       if (error || !data) {
-        console.error("Login lookup error", error);
         alert("Invalid email or password");
         return;
       }
@@ -37,6 +36,7 @@ export default function LoginPage() {
       // record success and redirect
       try {
         localStorage.setItem("userEmail", email);
+        alert(`Login successful! Welcome ${data.FirstName}!`);
       } catch {}
       router.push("/");
     } catch (err) {
