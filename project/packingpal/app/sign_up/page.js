@@ -35,7 +35,7 @@ export default function SignupPage() {
 
       const { data, error } = await supabase
         .from("account")
-        .insert({ Email: email, Password: password });
+        .insert({ FirstName: firstName, Email: email, Password: password });
 
       if (error) {
         console.error("Error inserting user", error);
