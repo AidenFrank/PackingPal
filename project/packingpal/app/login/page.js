@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabaseClient";
@@ -10,6 +10,12 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
+  useEffect(() => {
+  const user = localStorage.getItem("userEmail");
+  if (user) {
+    router.push("/");
+  }
+}, []);
 
   const handleSubmit = async (e) => {
     
