@@ -16,14 +16,18 @@
     "openai": "^6.22.0",
     "pdfjs-dist": "^5.5.207",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-toggle-dark-mode": "^2.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "autoprefixer": "^10.4.27",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "tailwindcss": "^4.1.16"
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "tailwindscss": "^0.3.0"
   },
   "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
   "main": "index.js",

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabaseClient";
@@ -10,6 +10,12 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
+  useEffect(() => {
+  const user = localStorage.getItem("userEmail");
+  if (user) {
+    router.push("/");
+  }
+}, []);
 
   const handleSubmit = async (e) => {
     
@@ -19,12 +25,11 @@ export default function LoginPage() {
       // query custom table using Email column
       const { data, error } = await supabase
         .from("account")
-        .select("Password")
+        .select("Password, FirstName")
         .eq("Email", email)
         .single();
 
       if (error || !data) {
-        console.error("Login lookup error", error);
         alert("Invalid email or password");
         return;
       }
@@ -37,6 +42,7 @@ export default function LoginPage() {
       // record success and redirect
       try {
         localStorage.setItem("userEmail", email);
+        alert(`Login successful! Welcome ${data.FirstName}!`);
       } catch {}
       router.push("/");
     } catch (err) {

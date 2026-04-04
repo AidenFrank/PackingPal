@@ -99,7 +99,7 @@ The following links were helpful in the creation of our project:
 ### Summary of Hours and Justification
 
 2025
-Group Meeting hours:
+Group Meeting Hours:
 - 9/4 30 minutes: Discussed intial project ideas and name
 - 9/9 30 minutes: Discussed team contract
 - 9/16 1 hour: Created user stories/design diagrams and planned initial research needed for React coding
@@ -145,7 +145,8 @@ Monica:
 - Group meetings: 13
 - Creating the home page, splitting the chat and list sides, designing logo, adding logo to website: 7
 - Created Login Page: 3
-- Worked on having the login page connect with home page and sign up page: 3 
+- Worked on having the login page connect with home page and sign up page: 3
+
 Total: 43 Hours 
 
 
@@ -157,3 +158,28 @@ Jessica:
 - reviewing pull requests: 1 hour
 
 Total: 41 hours
+
+2026
+Group Meeting Hours:
+- 1/21 30 minutes: Virtual meeting on Discord to discuss 2nd semester plans
+- 3/23 1 hour: Met with project advisor John Lynch
+
+Aiden:
+- 2/18 3 hours: [Initial Chat Commit](https://github.com/AidenFrank/PackingPal/commit/46c1b7c7a3d76ca69d1445fef5906ee673a13291)
+- 2/19 3 hours: [Implemented tools/tool registry (basic updateLocation tool)](https://github.com/AidenFrank/PackingPal/commit/8433cf876bb83d041b2887c10ec0da8dbcb55ad3)
+- 3/1 5 hours: [Basic list and functions implemented](https://github.com/AidenFrank/PackingPal/commit/9333a7c5fd3086d0322f0190574db673acfe32b0)
+- 3/2 4 hours: [Implemented timeframe object and mergeDeep for consistent json updates](https://github.com/AidenFrank/PackingPal/commit/659fe92b8924bf193f4adec1459714cc004b5e1a)
+- 3/4 1 hour: [Modified chat view to show char count and speech bubbles](https://github.com/AidenFrank/PackingPal/commit/d4886b004e01bc5f91f691109b9aa5c98fad9bec)
+- 3/13 2 hours: Initial Expo Poster work in Google Slides
+- 3/14 4 hours: Expo Poster Left Side
+- 3/15 5 hours: Expo Poster Right Side and Middle Section Process
+- 3/16 1 hour: Pull Request Review for [New frontend updates](https://github.com/AidenFrank/PackingPal/pull/14)
+- 3/16 5 hours: Expo Poster Finishing Middle and Right Side, Touching up Everything, Getting Feedback
+- 3/17 2 hours: Self Assessment Assignment
+- 3/19 4 hours: [Initial JSON changes for basicDetails and some PDF modifications](https://github.com/AidenFrank/PackingPal/commit/7993558065f355b032785ed8a48dffc6ddad29f9)
+- 3/19 4 hours: [List layout normalization](https://github.com/AidenFrank/PackingPal/commit/f8ba6b78703bd7a04909734780995baa58e166c5)
+- 3/20 2 hours: [More list updates, now with better section customization. Also removed redundant updatePDF call in route](https://github.com/AidenFrank/PackingPal/commit/973671a386d16410a9aad5b47a87c4dfce2bd87b)
+- 3/21 2 hours: [Basic Information List updates and decides if PDF needs to be updated now based on if there are any tool calls](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
+- 3/23 5 hours: [More Preliminary List Checks and ability to add actual packing list items now](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
+
+Total: 52 Hours
