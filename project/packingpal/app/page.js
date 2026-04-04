@@ -24,6 +24,21 @@ export default function Home() {
     }
   }, []);
 
+  // Warn users if they try to leave the page with unsaved changes
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      e.preventDefault();
+      // Chrome requires setting returnValue
+      e.returnValue = "";
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   // Subscribe to PDF changes
   useEffect(() => {
     const unsubscribe = subscribeToPDF((data) => {
@@ -95,7 +110,7 @@ export default function Home() {
       {/*Hamburger Button*/}
       <div className="absolute top-4 right-4">
         <button
-          className="flex flex-col justify-center space-y-2 w-8 h-8 focus:outline-none"
+          className="flex flex-col justify-center space-y-2 w-8 h-8 focus:outline-none cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span className="block h-1.5 w-full bg-black rounded"></span>
@@ -111,7 +126,7 @@ export default function Home() {
         >
           <div className="p-6 flex flex-col space-y-4">
             <button
-              className="self-end text-gray-600 font-bold text-xl"
+              className="self-end text-gray-600 font-bold text-xl cursor-pointer"
               onClick={() => setMenuOpen(false)}
             >
               ×
@@ -125,7 +140,7 @@ export default function Home() {
               Settings
             </Link>
             <button
-              className="px-4 py-2 bg-[#E97824] text-white rounded hover:bg-[#cf671d] transition"
+              className="px-4 py-2 bg-[#E97824] text-white rounded hover:bg-[#cf671d] transition cursor-pointer"
               onClick={() => {
                 downloadJson();
               }}

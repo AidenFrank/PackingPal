@@ -205,7 +205,7 @@ export default function Chat() {
         />
         <button
           onClick={sendMessage}
-          className="px-5 py-3 rounded-r-lg bg-[#668a7a] text-white text-sm hover:bg-[#435A50] transition"
+          className="px-5 py-3 rounded-r-lg bg-[#668a7a] text-white text-sm hover:bg-[#435A50] active:bg-[#2f3f39] transition cursor-pointer"
         >
           Send
         </button>
