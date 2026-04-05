@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { updatePDF } from "@/app/lib/pdfStore";
+import { updateChat } from "@/app/lib/chatStore";
 
 const MAX_CHARS = 1500;
 
@@ -27,6 +28,10 @@ export default function Chat() {
         "Hello! I'm PackingPal, a helpful tool designed to help you create the perfect packing list for your camping trip. Why don't you start by telling me a bit about your trip?",
     },
   ]);
+  // Used to keep track of messages and access globally
+  useEffect(() => {
+    updateChat(messages);
+  }, [messages]);
   // Used to hold campingTrip json
   const [campingTrip, setCampingTrip] = useState(null);
   // Used to hold user input

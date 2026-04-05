@@ -7,12 +7,14 @@ import { useEffect, useState } from "react";
 import Chat from "@/components/chat/chat";
 import List from "@/components/list/list";
 import { subscribeToPDF } from "./lib/pdfStore";
+import { subscribeToChat } from "./lib/chatStore";
 
 export default function Home() {
   const router = useRouter();
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [pdfData, setPdfData] = useState(null);
+  const [chatMessages, setChatMessages] = useState([]);
 
   useEffect(() => {
     const user = localStorage.getItem("userEmail");
@@ -64,6 +66,36 @@ export default function Home() {
     const a = document.createElement("a");
     a.href = url;
     a.download = `${fileName}.json`;
+    a.click();
+
+    URL.revokeObjectURL(url);
+  };
+
+  // Subscribe to Chat changes
+  useEffect(() => {
+    const unsubscribe = subscribeToChat((msgs) => {
+      setChatMessages(msgs);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  const downloadChatText = () => {
+    if (!chatMessages.length) return;
+
+    const text = chatMessages
+      .map((msg) => {
+        const role = msg.role === "user" ? "You" : "PackingPal";
+        return `${role}: ${msg.content}`;
+      })
+      .join("\n\n");
+
+    const blob = new Blob([text], { type: "text/plain" });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "PackingPalTranscript.txt";
     a.click();
 
     URL.revokeObjectURL(url);
@@ -134,18 +166,26 @@ export default function Home() {
 
             <Link
               href="/settings"
-              className="px-4 py-2 bg-gray-200 text-black rounded hover:bg-gray-300 transition"
+              className="px-4 py-2 text-left bg-gray-200 text-black rounded hover:bg-gray-300 transition"
               onClick={() => setMenuOpen(false)}
             >
               Settings
             </Link>
             <button
-              className="px-4 py-2 bg-[#E97824] text-white rounded hover:bg-[#cf671d] transition cursor-pointer"
+              className="px-4 py-2 text-left bg-[#E97824] text-white rounded hover:bg-[#cf671d] transition cursor-pointer"
               onClick={() => {
                 downloadJson();
               }}
             >
               Download JSON
+            </button>
+            <button
+              className="px-4 py-2 text-left bg-[#668a7a] text-white rounded hover:bg-[#435A50] transition cursor-pointer"
+              onClick={() => {
+                downloadChatText();
+              }}
+            >
+              Download Chat
             </button>
           </div>
         </div>
