@@ -2,8 +2,22 @@
 
 import { useState, useEffect, useRef } from "react";
 import { updatePDF } from "@/app/lib/pdfStore";
+import { updateChat } from "@/app/lib/chatStore";
 
 const MAX_CHARS = 1500;
+
+// Check for phrases that PackingPal updated something, so we know to check if a tool was used or not.
+function claimsUpdate(text) {
+  if (!text) return false;
+
+  const patterns = [
+    /i (have|\'ve) (updated|added|removed|set|changed)/,
+    /i (updated|added|removed|set|changed)/,
+    /your .* (has been|have been) (updated|added|removed|set|changed)/,
+  ];
+
+  return patterns.some((regex) => regex.test(text.toLowerCase()));
+}
 
 export default function Chat() {
   // Used to hold messages, also includes default message
@@ -14,6 +28,10 @@ export default function Chat() {
         "Hello! I'm PackingPal, a helpful tool designed to help you create the perfect packing list for your camping trip. Why don't you start by telling me a bit about your trip?",
     },
   ]);
+  // Used to keep track of messages and access globally
+  useEffect(() => {
+    updateChat(messages);
+  }, [messages]);
   // Used to hold campingTrip json
   const [campingTrip, setCampingTrip] = useState(null);
   // Used to hold user input
@@ -67,8 +85,57 @@ export default function Chat() {
       });
       // Recieves response from openai
       const data = await response.json();
-      setCampingTrip(data.campingTrip);
-      updatePDF(data.campingTrip);
+      // Check output of server in the inspect element log
+      //console.log("Response from server:", data);
+      const didClaimUpdate = claimsUpdate(data.reply);
+
+      // This block of code is a safety net in case PackingPal claims to have updated something but didn't
+      if (didClaimUpdate && !data.usedTools) {
+        console.warn("Retrying due to missing tool call...");
+
+        const retryResponse = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            messages: [
+              ...updatedMessages,
+              {
+                role: "system",
+                content:
+                  "You must call a tool to perform updates. Do not respond with text only.",
+              },
+            ],
+            campingTrip,
+          }),
+        });
+
+        const retryData = await retryResponse.json();
+
+        // Apply tool updates if they worked this time
+        if (retryData.usedTools) {
+          setCampingTrip(retryData.campingTrip);
+          updatePDF(retryData.campingTrip);
+        }
+
+        // Show retry response instead
+        const botMessage = {
+          role: "assistant",
+          content: retryData.reply,
+        };
+
+        setMessages((prev) => [...prev, botMessage]);
+
+        setLoading(false);
+        return; // stop original flow
+      }
+
+      // Only update PDF if tools were used
+      if (data.usedTools) {
+        setCampingTrip(data.campingTrip);
+        updatePDF(data.campingTrip);
+      }
       // Creates message from openai
       const botMessage = {
         role: "assistant",
@@ -143,7 +210,7 @@ export default function Chat() {
         />
         <button
           onClick={sendMessage}
-          className="px-5 py-3 rounded-r-lg bg-[#668a7a] text-white text-sm hover:bg-[#435A50] transition"
+          className="px-5 py-3 rounded-r-lg bg-[#668a7a] text-white text-sm hover:bg-[#435A50] active:bg-[#2f3f39] transition cursor-pointer"
         >
           Send
         </button>

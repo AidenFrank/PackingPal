@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import { subscribeToPDF } from "@/app/lib/pdfStore";
 
+import { createLayout } from "./layout/layout";
+import { renderPeople } from "./sections/people";
+import { renderLocation } from "./sections/location";
+import { renderTimeFrame } from "./sections/timeframe";
+import { renderPackingList } from "./sections/packinglist";
+
 export default function List() {
   const [pdfUrl, setPdfUrl] = useState(null);
 
@@ -18,120 +24,42 @@ export default function List() {
 
   const generatePdf = (data) => {
     if (!data) return;
-
-    // Helper function to only render data if it exists
-    const addLineIfExists = (label, value) => {
-      if (
-        value !== undefined &&
-        value !== null &&
-        value !== "" &&
-        value !== 0
-      ) {
-        doc.text(`${label}: ${value}`, 10, y);
-        y += 8;
-      }
-    };
-
     const doc = new jsPDF();
+    const layout = createLayout(doc);
 
-    let y = 20; // start a little lower for top margin
+    const { addText, addCenteredText, addHeader, addDivider } = layout;
 
-    // --- Title Styling ---
-    const title = data.basicDetails?.title || "Camping Trip";
-    doc.setFont("helvetica", "bold"); // bold font
-    doc.setFontSize(22); // bigger font for title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
 
-    // Center the title
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const titleWidth = doc.getTextWidth(title);
-    const x = (pageWidth - titleWidth) / 2;
+    addCenteredText(data.basicDetails.title || "Camping Trip", 2);
 
-    doc.text(title, x, y);
+    layout.y += 4;
 
-    y += 15; // spacing after title
-
-    // --- Basic Details ---
+    doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
 
-    if (data.basicDetails) {
-      const { location, people, timeframe } = data.basicDetails;
+    const sections = [
+      {
+        fn: renderPeople,
+        data: data.basicDetails.people,
+      },
+      {
+        fn: renderLocation,
+        data: data.basicDetails.location,
+      },
+      {
+        fn: renderTimeFrame,
+        data: data.basicDetails.timeframe,
+      },
+    ];
 
-      addLineIfExists("Location", location);
-      addLineIfExists("People", people);
+    sections.forEach(({ fn, data }) => {
+      const didRender = fn(layout, data);
+      if (didRender) addDivider();
+    });
 
-      // --- Timeframe Section ---
-      if (timeframe) {
-        const {
-          durationDays,
-          durationNights,
-          departDay,
-          departTime,
-          returnDay,
-          returnTime,
-          season,
-        } = timeframe;
-
-        // Only show section if something exists
-        const hasTimeframeData =
-          durationDays ||
-          durationNights ||
-          departDay ||
-          departTime ||
-          returnDay ||
-          returnTime ||
-          season;
-
-        if (hasTimeframeData) {
-          y += 4;
-
-          doc.setFont("helvetica", "bold");
-          doc.text("Trip Details", 10, y);
-          y += 8;
-
-          doc.setFont("helvetica", "normal");
-
-          addLineIfExists("Days", durationDays);
-          addLineIfExists("Nights", durationNights);
-
-          if (departDay || departTime) {
-            addLineIfExists(
-              "Departure",
-              `${departDay || ""} ${departTime || ""}`.trim(),
-            );
-          }
-
-          if (returnDay || returnTime) {
-            addLineIfExists(
-              "Return",
-              `${returnDay || ""} ${returnTime || ""}`.trim(),
-            );
-          }
-
-          addLineIfExists("Season", season);
-
-          y += 4;
-        }
-      }
-
-      y += 8;
-    }
-
-    // --- Packing List ---
-    if (data.packingList) {
-      Object.entries(data.packingList).forEach(([category, items]) => {
-        doc.setFont("helvetica", "bold");
-        doc.text(category.toUpperCase(), 10, y);
-        y += 8;
-
-        doc.setFont("helvetica", "normal");
-        items.forEach((item) => {
-          doc.text(`- ${item}`, 15, y);
-          y += 6;
-        });
-
-        y += 4;
-      });
-    }
+    renderPackingList(layout, data.packingList);
 
     const url = doc.output("bloburl");
     setPdfUrl(url);

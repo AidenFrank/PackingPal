@@ -20,6 +20,7 @@ export const tool = {
               departTime: { type: "string" },
               returnDay: { type: "string" },
               returnTime: { type: "string" },
+              month: { type: "string" },
               season: { type: "string" },
               flexible: { type: "boolean" },
             },
@@ -36,8 +37,6 @@ export const tool = {
     }
 
     mergeDeep(packingList.basicDetails.timeframe, args.timeframe);
-
-    console.log("Updated timeframe:", args.timeframe);
 
     return packingList;
   },

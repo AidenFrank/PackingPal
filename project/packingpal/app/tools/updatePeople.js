@@ -7,14 +7,21 @@ export const tool = {
     type: "function",
     function: {
       name: "updatePeople",
-
-      description: "Updates the number of people for the trip",
+      description: "Updates the people on the trip",
       parameters: {
         type: "object",
         properties: {
           people: {
-            type: "number",
-            description: "The number of people for the trip",
+            type: "array",
+            description: "The names and roles of people on the trip",
+            items: {
+              type: "object",
+              properties: {
+                name: { type: "string" },
+                role: { type: "string" },
+              },
+              required: ["name"],
+            },
           },
         },
         required: ["people"],
@@ -24,9 +31,11 @@ export const tool = {
 
   handler: (args, packingList) => {
     mergeDeep(packingList.basicDetails, {
-      people: args.people,
+      people: args.people.map((p) => ({
+        name: p.name,
+        role: p.role || "",
+      })),
     });
-    console.log("People updated to :", packingList.basicDetails.people);
     return packingList;
   },
 };

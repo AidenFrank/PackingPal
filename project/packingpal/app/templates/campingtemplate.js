@@ -2,10 +2,24 @@ export function createCampingTemplate() {
   return {
     basicDetails: {
       title: "",
-      location: "",
+      location: {
+        name: "",
+        address: "",
+      },
+      travel: {
+        method: "",
+        distanceMiles: null,
+        estimatedTravelTime: "",
+        vehicle: "",
+      },
+      weather: {
+        expectedHigh: null,
+        expectedLow: null,
+        conditions: "",
+      },
       timeframe: {
-        durationDays: 0,
-        durationNights: 0,
+        durationDays: null,
+        durationNights: null,
         departDay: "",
         departTime: "",
         returnDay: "",
@@ -13,8 +27,53 @@ export function createCampingTemplate() {
         season: "",
         flexible: false,
       },
-      people: 0,
+      people: [
+        {
+          name: "",
+          role: "",
+        },
+      ],
+      safety: {
+        emergencyContacts: [],
+      },
     },
-    packingList: {},
+    packingList: {
+      clothing: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      campinggear: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      foodcooking: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      healthsafety: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      personalitems: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+      miscellaneous: [
+        {
+          name: "",
+          quantity: null,
+        },
+      ],
+    },
   };
 }

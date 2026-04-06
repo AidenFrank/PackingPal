@@ -12,8 +12,11 @@ export const tool = {
         type: "object",
         properties: {
           location: {
-            type: "string",
-            description: "The location of the trip",
+            type: "object",
+            properties: {
+              name: { type: "string" },
+              address: { type: "string" },
+            },
           },
         },
         required: ["location"],
@@ -25,7 +28,6 @@ export const tool = {
     mergeDeep(packingList.basicDetails, {
       location: args.location,
     });
-    console.log("Location updated to :", packingList.basicDetails.location);
     return packingList;
   },
 };
