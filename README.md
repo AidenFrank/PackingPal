@@ -182,4 +182,15 @@ Aiden:
 - 3/21 2 hours: [Basic Information List updates and decides if PDF needs to be updated now based on if there are any tool calls](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
 - 3/23 5 hours: [More Preliminary List Checks and ability to add actual packing list items now](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
 
-Total: 52 Hours
+Monica:
+- 1/21 3 hours: Added a basic text saying login page on the login page, added the logo in the top left and editing to be the correct size, and format in the app.js .
+- 1/29 5 hours: Built the login page, and started working on the sign up page also.
+- 2/12 1 hour: Fixed the text color in the login page to be visible.
+- 3/4  5 hours: Fixed the sign up page to actually work (routing), created the slide menu bar, fixing the burger menu. Had problems with everything I had made 
+- 3/5  7 hours: Had to make a new branch, fighting superbase to actually work for the longest time, added the logo to the login page, had to change to a clear background logo, had to fix the login button to only be 1 and not two, tried to research about a dark mode, and changed the design of the burger menu, fixed the logo corners that were visible. 
+- 3/16 2 hours: still fixing small details in the main page and login page. 
+- 3/23 5 min: Erased commented code that we were not going to use anymore. 
+- 3/31 2 hours: Self Assesment Assignment
+- 4/2  5 hours: Fixed the routing of the pages to start with login first and then go to the home page (main page) and then added the settings page to actually work for logging out and displaying the account that is currently signed in. 
+
+Total: 82 Hours and 5 minutes
