@@ -3,25 +3,32 @@
 ## Table of Contents
 
 * [Core Information](#core-information)
+   * [Special Note](#special-note)
    * [Team Members](#team-members)
    * [Project Abstract](#project-abstract)
-* [Project Description (Assignment #2)](#project-description)
-* [User Stories and Design Diagrams (Assignment #4)](#user-stories-and-design-diagrams)
-   * [User Stories](#user-stories)
-   * [Design Diagrams](#design-diagrams)
-* [Project Tasks, Timeline, and Effort Matrix (Assignments #5-#6)](#project-tasks-timeline-and-effort-matrix)
-   * [Task List](#task-list)
-   * [Timeline and Effort Matrix](#timeline-and-effort-matrix)
-* [ABET Concerns Essay (Assignment #7)](#abet-concerns-essay)
-* [Fall Design Presentation (Assignment #8)](#fall-design-presentation)
-* [Self-Assessment Essays (Assignment #3)](#self-assessment-essays)
-* [Professional Biographies (Assignment #1)](#professional-biographies)
+* [Project Description](#project-description)
+* [User Interface Specification](#user-interface-specification)
+* [Test Plan and Results](#test-plan-and-results)
+* [User Manual](#user-manual)
+* [Spring Final Presentation](#spring-final-presentation)
+* [Final Expo Poster](#expo-poster)
+* [Self-Assessment Essays](#self-assessment-essays)
+   * [Initial Self-Assessment (Fall Semester)](#initial-self-assessment)
+   * [Final Self-Assessment (Spring Semester)](#final-self-assessment)
 * [Summary of Expenses](#summary-of-expenses)
 * [Appendix](#appendix)
    * [References, Citations, Links to Code Repositories, Meeting Notes](#references-citations-links-to-code-repositories-meeting-notes)
    * [Summary of Hours and Justification](#summary-of-hours-and-justification)
+      * [Fall 2025](#fall-2025)
+      * [Spring 2026](#spring-2026)
+      * [Total](#total)
 
 ## Core Information
+
+### Special Note
+
+We are pleased to announce that PackingPal won 1st place at the 2026 Senior Design Expo for the Innovation, Creativity, and Entrepreneurship category.
+More information can be found [here](https://www.uc.edu/news/articles/2026/04/engineering-students-shine-at-annual-ceas-expo.html)!
 
 ### Team Members
 
@@ -38,50 +45,39 @@ PackingPal is a tool designed to help people conveniently formulate and share hi
 
 [Project Description](/Project-Description.md)
 
-## User Stories and Design Diagrams
+## User Interface Specification
 
-### User Stories
+Please refer to the [Final Expo Poster](#expo-poster) section as the poster discusses the User Interface in detail.
 
-[User Stories](/Assignments/design-diagrams-and-user-stories/User_Stories.md)
+## Test Plan and Results
 
-### Design Diagrams
+The test plan can be found [here](/Assignments/testplan/PackingPal_Test_Plan.docx). All tests passed.
 
-- [Level 0](/Assignments/design-diagrams-and-user-stories/D0_Diagram.png)
-- [Level 1](/Assignments/design-diagrams-and-user-stories/D1_Diagram.png)
-- [Level 2](/Assignments/design-diagrams-and-user-stories/D2_Diagram.png)
-- [Decription of Diagrams](/Assignments/design-diagrams-and-user-stories/Design_Diagram_Document.pdf)
+## User Manual
 
-## Project Tasks, Timeline, and Effort Matrix
+[User Manual](/Assignments/user-documentation/user_docs.md)
 
-### Task List
+## Spring Final Presentation
 
-[Task List](/Assignments/Tasklist/Tasklist.md)
+Can be found [here](https://docs.google.com/presentation/d/1NSjq6Meb2JpW-wsFlERM21-NgN_JjPkUmyLofJiCRaw/edit?usp=sharing).
 
-### Timeline and Effort Matrix
+## Final Expo Poster
 
-[Timeline and Effort Matrix](/Assignments/milestones-timeline-effort-matrix/Packing%20Pal%20Assignment%20#6%20-%20Milestones,%20Timeline,%20and%20Effort%20Matrix.pdf)
-
-## ABET Concerns Essay
-
-[ABET Concerns Essay](/Assignments/project-constraints/Packing%20Pal%20Project%20Constraints%20Essay.md)
-
-## Fall Design Presentation
-
-[Presentation Slides](https://docs.google.com/presentation/d/1euvzkOMKoglbNnDcwoWR7_m0s2lvJjSQmiCdhxHWFns/edit?usp=sharing)
-
-[Presentation Video](https://www.youtube.com/watch?v=Oaas-wDnzGw)
+[Expo Poster](/Assignments/expo-poster/frankai_EXPO.pdf)
 
 ## Self-Assessment Essays
+
+### Initial Self-Assessment (Fall Semester)
 
 - [Aiden Frank's Initial Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Aiden%20Frank%20Individual%20Capstone%20Assessment.pdf)
 - [Jessica Cvetkovska's Initial Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Jessica%20Cvetkovska%20Individual%20Capstone%20Assessment.docx)
 - [Monica Escobedo Barahona's Initial Self Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Escobedo_Capstone_Assesment.pdf)
 
-## Professional Biographies
+### Final Self-Assessment (Spring Semester)
 
-- [Aiden Frank's Professional Biography](/Assignments/professional-biographies/Aiden%20Frank%20Professional%20Biography.pdf)
-- [Jessica Cvetkovska's Professional Biography](/Assignments/professional-biographies/Jessica%20Cvetkovska%20Professional%20Biography.md)
-- [Monica Escobedo Barahona's Professional Biography](/Assignments/professional-biographies/Monica%20Escobedo%20Professional%20Biography.pdf)
+- [Aiden Frank's Final Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/CS%20SENIOR%20DSGN%20II%20Self%20Assessment%20Aiden%20Frank.pdf)
+- [Jessica Cvetkovska's Final Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Jessica%20Cvetkovska%20Spring%20Capstone%20Assessment.docx)
+- [Monica Escobedo Barahona's Final Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Monica_Self_Assessment_2026.pdf)
 
 ## Summary of Expenses
 
@@ -98,7 +94,8 @@ The following links were helpful in the creation of our project:
 
 ### Summary of Hours and Justification
 
-2025
+#### Fall 2025
+
 Group Meeting Hours:
 - 9/4 30 minutes: Discussed intial project ideas and name
 - 9/9 30 minutes: Discussed team contract
@@ -139,6 +136,15 @@ Aiden:
 
 Total: 36 hours
 
+Jessica:
+- researching related technologies/tools and tutorials: 3.5 hours
+- assignments worked on outside of the group (professional biography, concerns essay, peer reviews, design report/presentation, etc): 13 hours
+- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 17.5 hours
+- brainstorming, researching, and implementing database schema: 6 hours
+- reviewing pull requests: 1 hour
+
+Total: 41 hours
+
 Monica:
 - Research for React, Next.js, Tailwind CSS and doing tutorials: 5
 - Group Assignments worked on outside of regular team meetings: 12
@@ -149,17 +155,8 @@ Monica:
 
 Total: 43 Hours 
 
+#### Spring 2026
 
-Jessica:
-- researching related technologies/tools and tutorials: 3.5 hours
-- assignments worked on outside of the group (professional biography, concerns essay, peer reviews, design report/presentation, etc): 13 hours
-- meetings (including planning of discussion topics before meetings and partial meeting minutes after): 17.5 hours
-- brainstorming, researching, and implementing database schema: 6 hours
-- reviewing pull requests: 1 hour
-
-Total: 41 hours
-
-2026
 Group Meeting Hours:
 - 1/21 30 minutes: Virtual meeting on Discord to discuss 2nd semester plans
 - 3/23 1 hour: Met with project advisor John Lynch
@@ -182,6 +179,18 @@ Aiden:
 - 3/21 2 hours: [Basic Information List updates and decides if PDF needs to be updated now based on if there are any tool calls](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
 - 3/23 5 hours: [More Preliminary List Checks and ability to add actual packing list items now](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
 
+Total: 53.5 hours
+
+Jessica:
+- meetings (listed above) and minutes/planning: 4 hours
+- assignments (test plan, documentation, presentations, self-assessment, final report, etc): 24 hours
+- pull request reviews: 5 hours
+- assisting with testing and developing related functionality: 5 hours
+- [Database Barebones Functionality](https://github.com/AidenFrank/PackingPal/pull/12): 5 hours
+- [Updated Login/Sign-Up](https://github.com/AidenFrank/PackingPal/pull/16): 2 hours
+
+Total: 45 hours
+
 Monica:
 - 1/21 3 hours: Added a basic text saying login page on the login page, added the logo in the top left and editing to be the correct size, and format in the app.js .
 - 1/29 5 hours: Built the login page, and started working on the sign up page also.
@@ -193,4 +202,10 @@ Monica:
 - 3/31 2 hours: Self Assesment Assignment
 - 4/2  5 hours: Fixed the routing of the pages to start with login first and then go to the home page (main page) and then added the settings page to actually work for logging out and displaying the account that is currently signed in. 
 
-Total: 82 Hours and 5 minutes
+Total: 31.5 hours
+
+#### Total
+
+- Aiden: 99.5 hours
+- Jessica: 88 hours
+- Monica: 74.5 hours
