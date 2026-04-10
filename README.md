@@ -16,9 +16,10 @@
    * [Initial Self-Assessment (Fall Semester)](#initial-self-assessment)
    * [Final Self-Assessment (Spring Semester)](#final-self-assessment)
 * [Summary of Expenses](#summary-of-expenses)
+* [Summary of Hours and Justification](#summary-of-hours-and-justification)
 * [Appendix](#appendix)
    * [References, Citations, Links to Code Repositories, Meeting Notes](#references-citations-links-to-code-repositories-meeting-notes)
-   * [Summary of Hours and Justification](#summary-of-hours-and-justification)
+   * [Evidence of Hours](#evidence-of-hours)
       * [Fall 2025](#fall-2025)
       * [Spring 2026](#spring-2026)
       * [Total](#total)
@@ -93,7 +94,7 @@ Can be found [here](https://docs.google.com/presentation/d/1NSjq6Meb2JpW-wsFlERM
 - Jessica: 45
 - Monica: 45.5
 
-Justification for hours can be found below in the [Summary of Hours and Justification](#summary-of-hours-and-justification) section.
+Justification/Evidence of hours can be found below in the [Evidence of Hours](#evidence-of-hours) section.
 
 ## Summary of Expenses
 
@@ -108,7 +109,7 @@ The following links were helpful in the creation of our project:
 - [Tic Tac Toe React Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
 - [OpenAI API Cost Information](https://themeisle.com/blog/chatgpt-api-cost/)
 
-### Summary of Hours and Justification
+### Evidence of Hours
 
 #### Fall 2025
 
