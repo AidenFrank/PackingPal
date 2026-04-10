@@ -200,12 +200,15 @@ Monica:
 - 3/16 2 hours: still fixing small details in the main page and login page. 
 - 3/23 5 min: Erased commented code that we were not going to use anymore. 
 - 3/31 2 hours: Self Assesment Assignment
-- 4/2  5 hours: Fixed the routing of the pages to start with login first and then go to the home page (main page) and then added the settings page to actually work for logging out and displaying the account that is currently signed in. 
+- 3/31 4 hours: Tried to do a bit of research on how I could work on making a dark mode for our website. 
+- 4/2  5 hours: Fixed the routing of the pages to start with login first and then go to the home page (main page) and then added the settings page to actually work for logging out and displaying the account that is currently signed in.
+- 4/2 - 4/3 10 hours: I tried on my branch by itself to work on getting a dark mode button and for the button to work. I got the button to work when being clicked on I got the pop up message but never got the switch to actually switch the light colors to dark colors. I researched more and more and tried many ways of doing the dark mode. I would erase what I had done before and then restart a different method to try to get the switch to work for the actual colors but did not work. I did this 2-3 times but nothing ever worked so I did not push anything. Will try to work on this in the future.
+-                                                         
 
-Total: 31.5 hours
+Total: 45.5 hours
 
 #### Total
 
 - Aiden: 99.5 hours
 - Jessica: 88 hours
-- Monica: 74.5 hours
+- Monica: 89.5 hours
