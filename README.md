@@ -11,7 +11,7 @@
 * [Test Plan and Results](#test-plan-and-results)
 * [User Manual](#user-manual)
 * [Spring Final Presentation](#spring-final-presentation)
-* [Final Expo Poster](#expo-poster)
+* [Final Expo Poster](#final-expo-poster)
 * [Self-Assessment Essays](#self-assessment-essays)
    * [Initial Self-Assessment (Fall Semester)](#initial-self-assessment)
    * [Final Self-Assessment (Spring Semester)](#final-self-assessment)
@@ -47,7 +47,7 @@ PackingPal is a tool designed to help people conveniently formulate and share hi
 
 ## User Interface Specification
 
-Please refer to the [Final Expo Poster](#expo-poster) section as the poster discusses the User Interface in detail.
+Please refer to the [Final Expo Poster](#final-expo-poster) section as the poster discusses the User Interface in detail.
 
 ## Test Plan and Results
 
@@ -63,7 +63,7 @@ Can be found [here](https://docs.google.com/presentation/d/1NSjq6Meb2JpW-wsFlERM
 
 ## Final Expo Poster
 
-[Expo Poster](/Assignments/expo-poster/frankai_EXPO.pdf)
+[Final Expo Poster](/Assignments/expo-poster/frankai_EXPO.pdf)
 
 ## Self-Assessment Essays
 
@@ -78,6 +78,22 @@ Can be found [here](https://docs.google.com/presentation/d/1NSjq6Meb2JpW-wsFlERM
 - [Aiden Frank's Final Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/CS%20SENIOR%20DSGN%20II%20Self%20Assessment%20Aiden%20Frank.pdf)
 - [Jessica Cvetkovska's Final Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Jessica%20Cvetkovska%20Spring%20Capstone%20Assessment.docx)
 - [Monica Escobedo Barahona's Final Self-Assessment](/Assignments/team-contract-and-capstone-essays/Capstone%20Assessments/Monica_Self_Assessment_2026.pdf)
+
+## Summary of Hours and Justification
+
+### Fall:
+- Shared group: 10
+- Aiden: 36
+- Jessica: 41
+- Monica: 43
+
+### Spring:
+- Shared group: 9.5
+- Aiden: 53
+- Jessica: 45
+- Monica: 45.5
+
+Justification for hours can be found below in the [Summary of Hours and Justification](#summary-of-hours-and-justification) section.
 
 ## Summary of Expenses
 
@@ -110,6 +126,7 @@ Group Meeting Hours:
 - 11/12 30 minutes: Progress updates
 - 11/18 30 minutes: Progress updates
 - 11/24 30 minutes: Report meeting and Advisor Rubric discussion
+
 Total: 10 hours
 
 Aiden:
@@ -160,6 +177,10 @@ Total: 43 Hours
 Group Meeting Hours:
 - 1/21 30 minutes: Virtual meeting on Discord to discuss 2nd semester plans
 - 3/23 1 hour: Met with project advisor John Lynch
+- 4/6 1 hour: Expo Load-In and Both Setup
+- 4/7 7 hours: Expo presentations
+
+Total: 9.5 Hours
 
 Aiden:
 - 2/18 3 hours: [Initial Chat Commit](https://github.com/AidenFrank/PackingPal/commit/46c1b7c7a3d76ca69d1445fef5906ee673a13291)
@@ -178,8 +199,10 @@ Aiden:
 - 3/20 2 hours: [More list updates, now with better section customization. Also removed redundant updatePDF call in route](https://github.com/AidenFrank/PackingPal/commit/973671a386d16410a9aad5b47a87c4dfce2bd87b)
 - 3/21 2 hours: [Basic Information List updates and decides if PDF needs to be updated now based on if there are any tool calls](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
 - 3/23 5 hours: [More Preliminary List Checks and ability to add actual packing list items now](https://github.com/AidenFrank/PackingPal/commit/b1d404de34671cc6e7ca49a19c0e53e804e5c23e)
+- 4/4 30 minutes: [Option to download JSON in side bar](https://github.com/AidenFrank/PackingPal/commit/fc3e5627dc4dd18860e44dc329b28daea9fab9c9)
+- 4/5 30 minutes: [Ability to download chat transcript](https://github.com/AidenFrank/PackingPal/commit/644ec4f3ec508cf089508efb4530f274ee72768b)
 
-Total: 53.5 hours
+Total: 53 hours
 
 Jessica:
 - meetings (listed above) and minutes/planning: 4 hours
@@ -202,13 +225,13 @@ Monica:
 - 3/31 2 hours: Self Assesment Assignment
 - 3/31 4 hours: Tried to do a bit of research on how I could work on making a dark mode for our website. 
 - 4/2  5 hours: Fixed the routing of the pages to start with login first and then go to the home page (main page) and then added the settings page to actually work for logging out and displaying the account that is currently signed in.
-- 4/2 - 4/3 10 hours: I tried on my branch by itself to work on getting a dark mode button and for the button to work. I got the button to work when being clicked on I got the pop up message but never got the switch to actually switch the light colors to dark colors. I researched more and more and tried many ways of doing the dark mode. I would erase what I had done before and then restart a different method to try to get the switch to work for the actual colors but did not work. I did this 2-3 times but nothing ever worked so I did not push anything. Will try to work on this in the future.
--                                                         
+- 4/2 - 4/3 10 hours: I tried on my branch by itself to work on getting a dark mode button and for the button to work. I got the button to work when being clicked on I got the pop up message but never got the switch to actually switch the light colors to dark colors. I researched more and more and tried many ways of doing the dark mode. I would erase what I had done before and then restart a different method to try to get the switch to work for the actual colors but did not work. I did this 2-3 times but nothing ever worked so I did not push anything. Will try to work on this in the future.                                                  
 
 Total: 45.5 hours
 
-#### Total
+#### Total Across Fall and Spring
 
-- Aiden: 99.5 hours
-- Jessica: 88 hours
-- Monica: 89.5 hours
+- Aiden: 108.5 hours
+- Jessica: 105.5 hours
+- Monica: 108 hours
+- Aiden + Jessica + Monica: 322 hours
